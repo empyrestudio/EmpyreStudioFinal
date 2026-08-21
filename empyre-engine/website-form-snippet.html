@@ -1,0 +1,31 @@
+<!--
+  Point the existing empyrestudio.com inquiry form at:
+  POST /api/inquiries   (JSON or application/x-www-form-urlencoded)
+
+  Do not rebuild the form. Add these names if missing.
+  Keep a honeypot input named "_hp" hidden with CSS.
+  Visitor always sees a simple thank-you. Never show CRM data.
+-->
+<form id="empyre-inquiry" method="post" action="/api/inquiries">
+  <input type="text" name="fullName" required maxlength="120" autocomplete="name" />
+  <input type="text" name="businessName" maxlength="160" />
+  <input type="email" name="email" required maxlength="180" autocomplete="email" />
+  <input type="tel" name="phone" maxlength="40" autocomplete="tel" />
+  <input type="url" name="website" maxlength="300" />
+  <input type="text" name="instagram" maxlength="300" />
+  <input type="text" name="industry" maxlength="80" />
+  <input type="text" name="location" maxlength="160" />
+  <input type="text" name="service" maxlength="160" />
+  <input type="text" name="projectType" maxlength="120" />
+  <input type="text" name="budget" maxlength="80" />
+  <input type="text" name="timeline" maxlength="80" />
+  <textarea name="challenge" maxlength="4000"></textarea>
+  <textarea name="message" maxlength="4000"></textarea>
+  <input type="text" name="referral" maxlength="120" />
+  <input type="checkbox" name="consent" />
+  <input type="text" name="_hp" tabindex="-1" autocomplete="off" style="position:absolute;left:-9999px" aria-hidden="true" />
+  <input type="hidden" name="formName" value="Website inquiry" />
+  <input type="hidden" name="landingPage" value="" />
+  <button type="submit">Send</button>
+</form>
+<p hidden data-success>Thank you. Your inquiry has been received. Empyré Studio will be in touch shortly.</p>
