@@ -1,5 +1,0 @@
-User-agent: *
-Disallow: /
-
-# Production launch: switch to Allow and publish sitemap.
-# Sitemap: https://empyrestudio.com/sitemap.xml
