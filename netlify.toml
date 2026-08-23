@@ -1,6 +1,6 @@
 [build]
-  publish = "."
-  functions = "netlify/functions"
+  publish = "empyre-studio-hybrid"
+  functions = "empyre-studio-hybrid/netlify/functions"
 
 [[headers]]
   for = "/*"
