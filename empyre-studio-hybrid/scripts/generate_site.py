@@ -1036,10 +1036,18 @@ def contact_page():
     <article class="proof-card"><p class="micro">Privacy</p><h3>Used only to respond</h3><p class="muted">See the <a href="/privacy/" style="border-bottom:1px solid var(--line)">privacy policy</a>. Empyré does not respond to unsolicited vendor outreach.</p></article>
     <article class="proof-card"><p class="micro">Confidentiality</p><h3>Private work stays private</h3><p class="muted">Relevant unpublished experience can be discussed once fit is established.</p></article>
   </div>
-  <form class="form surface-panel has-glare" name="project-inquiry" method="POST" action="/contact/thank-you/" data-inquiry-form netlify netlify-honeypot="company-site-confirmation">
+  <form class="form surface-panel has-glare" name="project-inquiry" method="POST" action="/api/inquiry" data-inquiry-form>
     <input type="hidden" name="form-name" value="project-inquiry">
     <p class="hp"><label>Do not complete this field if you are human <input name="company-site-confirmation" tabindex="-1" autocomplete="off"></label></p>
-    <p class="form-error" data-form-status hidden role="alert"></p>
+    <p class="form-error" data-form-status hidden role="alert" aria-live="polite"></p>
+    <div class="sr-only" data-form-summary tabindex="-1" aria-live="polite"></div>
+    <input type="hidden" name="landing-page-url" value="">
+    <input type="hidden" name="referrer" value="">
+    <input type="hidden" name="utm-source" value="">
+    <input type="hidden" name="utm-medium" value="">
+    <input type="hidden" name="utm-campaign" value="">
+    <input type="hidden" name="utm-term" value="">
+    <input type="hidden" name="utm-content" value="">
     <div class="form-step" data-step="1">
       <p class="step-dots">Step 01 of 02 · What is changing</p>
       <p class="muted">A low-friction first step. Qualification follows.</p>

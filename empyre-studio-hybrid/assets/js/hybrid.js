@@ -54,6 +54,8 @@
     const nextBtn = form.querySelector("[data-next-step]");
     const backBtn = form.querySelector("[data-back-step]");
     const status = form.querySelector("[data-form-status]");
+    const summary = form.querySelector("[data-form-summary]");
+    const submitBtn = form.querySelector("button[type='submit']");
     const params = new URLSearchParams(window.location.search);
     const service = params.get("service");
     if (service) {
@@ -64,10 +66,13 @@
     const requiredIn = (root) =>
       [...root.querySelectorAll("[required]")].filter((el) => !el.closest(".hp"));
 
-    const showError = (msg) => {
+    const showStatus = (msg, isError = true) => {
       if (!status) return;
       status.hidden = !msg;
       status.textContent = msg || "";
+      status.classList.toggle("is-success", Boolean(msg) && !isError);
+      status.setAttribute("role", isError ? "alert" : "status");
+      if (summary) summary.textContent = msg || "";
     };
 
     const validate = (root) => {
@@ -83,10 +88,10 @@
 
     nextBtn?.addEventListener("click", () => {
       if (!validate(step1)) {
-        showError("Complete the first step before continuing.");
+        showStatus("Complete the first step before continuing.");
         return;
       }
-      showError("");
+      showStatus("");
       step1.hidden = true;
       step2.hidden = false;
       step2.querySelector("input, select, textarea")?.focus();
@@ -95,14 +100,54 @@
     backBtn?.addEventListener("click", () => {
       step2.hidden = true;
       step1.hidden = false;
-      showError("");
+      showStatus("");
       step1.querySelector("input")?.focus();
     });
 
-    form.addEventListener("submit", (e) => {
+    const setTrackingFields = () => {
+      const values = {
+        "landing-page-url": window.location.href,
+        referrer: document.referrer,
+        "utm-source": params.get("utm_source") || "",
+        "utm-medium": params.get("utm_medium") || "",
+        "utm-campaign": params.get("utm_campaign") || "",
+        "utm-term": params.get("utm_term") || "",
+        "utm-content": params.get("utm_content") || "",
+      };
+      Object.entries(values).forEach(([name, value]) => {
+        const field = form.elements.namedItem(name);
+        if (field) field.value = value;
+      });
+    };
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
       if (!validate(form)) {
-        e.preventDefault();
-        showError("Review the highlighted fields and confirm privacy consent.");
+        showStatus("Review the highlighted fields and confirm privacy consent.");
+        summary?.focus();
+        return;
+      }
+      if (!submitBtn || submitBtn.disabled) return;
+      setTrackingFields();
+      submitBtn.disabled = true;
+      submitBtn.setAttribute("aria-busy", "true");
+      showStatus("Sending your inquiry…", false);
+      try {
+        const result = await fetch(form.action, {
+          method: "POST",
+          headers: { Accept: "application/json", "Content-Type": "application/json" },
+          body: JSON.stringify(Object.fromEntries(new FormData(form))),
+        });
+        const data = await result.json().catch(() => ({}));
+        if (!result.ok || !data.ok) throw new Error("Inquiry submission failed");
+        showStatus("Thank you. Your inquiry has been received. Empyré Studio will be in touch shortly.", false);
+        summary?.focus();
+      } catch (_) {
+        showStatus("Your inquiry could not be sent right now. Please try again shortly.");
+        summary?.focus();
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.removeAttribute("aria-busy");
       }
     });
   }

@@ -24,7 +24,7 @@ Website A and Website B GitHub repositories were not provided. Public live/previ
 - Language: HTML, CSS, JavaScript
 - Package manager: none
 - Build: none (static)
-- Forms: Netlify Forms (`project-inquiry`) when hosted on Netlify; otherwise the form posts to `/contact/thank-you/` for local review
+- Forms: the project inquiry posts to the server-side Netlify Function at `/api/inquiry`, which writes to the CRM through Supabase REST
 - Preview indexing: `noindex, nofollow` and `robots.txt` Disallow until production approval
 
 ## Local setup
@@ -57,3 +57,4 @@ When launching to production (after approval):
 
 - `AUDIT_IMPLEMENTATION.md` — recommendation register and status
 - `docs/HYBRID_DESIGN_SPEC.md` — experience, homepage sequence, design system, source map
+- `docs/INQUIRY_INTEGRATION.md` — CRM environment variables, field mapping, deployment, recovery, and manual tests
