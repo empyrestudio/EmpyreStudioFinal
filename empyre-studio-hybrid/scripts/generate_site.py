@@ -449,7 +449,7 @@ html[data-motion="reduced"] .cinematic-overlay--film,html[data-motion="reduced"]
       </article>
       <article class="operating-cell gold-glass interactive-float motion-reveal">
         <p class="micro">Strategy first</p>
-        <h3>The argument before the artefact</h3>
+        <h3>The argument before the artifact</h3>
         <p>Every engagement begins with a clear, defensible position the work can hold.</p>
       </article>
       <article class="operating-cell gold-glass interactive-float motion-reveal">
@@ -472,7 +472,7 @@ html[data-motion="reduced"] .cinematic-overlay--film,html[data-motion="reduced"]
     <div class="motion-group">
       <h2 class="motion-reveal" id="pov-title">A brand is <em>not</em> a logo.</h2>
       <p class="lede motion-reveal">It is the environment in which a company is understood—its position, language, structure, behavior, and standard.</p>
-      <p class="body">Strategy before surface. Systems before artefacts. Most studios deliver files. Empyré delivers the system those files come from: a strategic argument, an architecture that holds it, and a handover that lets your team run it without us in the room.</p>
+      <p class="body">Strategy before surface. Systems before artifacts. Most studios deliver files. Empyré delivers the system those files come from: a strategic argument, an architecture that holds it, and a handover that lets your team run it without us in the room.</p>
       <a class="text-link" href="/system/">Explore the Empyré system <span>↗</span></a>
     </div>
   </div>
@@ -994,7 +994,7 @@ def about_page():
       <h2 id="principles-title">Studio principles</h2>
       <ul class="about-principles">
         <li>Strategy before surface.</li>
-        <li>Systems before artefacts.</li>
+        <li>Systems before artifacts.</li>
         <li>Identity, elevated.</li>
       </ul>
     </div>

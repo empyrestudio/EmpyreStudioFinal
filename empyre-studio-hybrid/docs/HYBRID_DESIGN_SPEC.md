@@ -60,7 +60,7 @@ It elevates Empyré by looking like B (taste, scale, restraint) and behaving lik
 - Premium service studies as visual objects
 - Mobile drawer aesthetic
 - Private work framed as principle (“the floor, not the ceiling”)
-- Philosophy: strategy before surface; systems before artefacts; owned, not rented
+- Philosophy: strategy before surface; systems before artifacts; owned, not rented
 
 ### BUILD NEW
 
