@@ -20,8 +20,16 @@
   <meta name="twitter:description" content="Brand Clarity Sprint: The fastest path from confusion to conviction. A Brand Clarity Map—the strategic argument everything else depends on.">
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-tight-latin-wght-normal.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/instrument-serif-latin-400-italic.woff2" crossorigin>
-  <link rel="preload" as="image" href="/assets/img/loader/empyre-loader.gif">
-  <link rel="stylesheet" href="/assets/css/hybrid.css?v=loadergif10">
+  <link rel="preload" as="image" href="/assets/img/emblem-3d/empyre-gold-cloud.png">
+  <link rel="preload" as="image" href="/assets/img/r/hero_atmosphere-1600.jpg">
+  <link rel="stylesheet" href="/assets/css/hybrid.css?v=read01">
+  <link rel="stylesheet" href="/assets/css/empyre.css?v=read01">
+  <link rel="stylesheet" href="/assets/css/meaning-stage.css?v=gold01">
+  <link rel="stylesheet" href="/assets/css/fullscreen-menu.css?v=read01">
+  <link rel="stylesheet" href="/assets/css/gold-glass.css?v=legend01">
+  <link rel="stylesheet" href="/assets/css/readability.css?v=layout01">
+  <link rel="stylesheet" href="/assets/css/layout.css?v=layout01">
+  <link rel="stylesheet" href="/assets/css/loader-rise.css?v=rise02">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/img/logo/mark-180.png">
   <link rel="manifest" href="/site.webmanifest">
@@ -35,13 +43,15 @@
         } catch (e) {}
         if (reduce) document.documentElement.setAttribute("data-motion", "reduced");
         var home = location.pathname === "/" || location.pathname === "/index.html";
-        if (!reduce && home) document.documentElement.classList.add("empyre-loading");
+        var seen = false;
+        try { seen = localStorage.getItem("empyre-loader-played") === "1"; } catch (e2) {}
+        if (!reduce && home && !seen) document.documentElement.classList.add("empyre-loading");
       } catch (e) {}
     })();
   </script>
   
 </head>
-<body id="top" class="surface-ground is-interior">
+<body id="top" class="site-canvas surface-ground is-interior">
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header" data-header>
   <div class="header-inner shell">
@@ -56,18 +66,23 @@
       <span></span><span></span><span class="sr-only">Menu</span>
     </button>
   </div>
-  <div class="mobile-menu surface-panel has-glare" id="mobile-menu" hidden data-mobile-menu>
-    <div class="mobile-menu__top shell">
-      <span class="micro">Navigation</span>
-      <button class="menu-close" type="button" aria-label="Close menu" data-menu-close>
-        <span>Close</span><i></i>
+  <div class="fullscreen-menu" id="mobile-menu" hidden data-mobile-menu role="dialog" aria-modal="true" aria-label="Site navigation">
+    <div class="fullscreen-menu__atmosphere" aria-hidden="true"></div>
+    <div class="fullscreen-menu__topbar">
+      <a class="fullscreen-menu__brand" href="/" aria-label="Empyré Studio home">
+        <img src="/assets/img/logo/wordmark-140.png" srcset="/assets/img/logo/wordmark-140.png 1x, /assets/img/logo/wordmark-280.png 2x" width="140" height="38" alt="Empyré Studio">
+      </a>
+      <button class="menu-close" type="button" aria-label="Close navigation" data-menu-close>
+        <span aria-hidden="true">×</span>
       </button>
     </div>
-    <nav class="mobile-menu__nav shell" aria-label="Mobile">
-      <a href="/work/"><span>01</span>Work</a><a href="/services/" aria-current="page"><span>02</span>Services</a><a href="/system/"><span>03</span>System</a><a href="/about/"><span>04</span>About</a><a href="/notes/"><span>05</span>Notes</a>
-      <a class="mobile-menu__cta" href="/contact/">Start a project <span aria-hidden="true">↗</span></a>
+    <nav class="fullscreen-menu__nav" aria-label="Primary">
+      <ol><li><a href="/"><span>01</span>Home<i aria-hidden="true">↗</i></a></li><li><a href="/work/"><span>02</span>Work<i aria-hidden="true">↗</i></a></li><li><a href="/services/" aria-current="page"><span>03</span>Services<i aria-hidden="true">↗</i></a></li><li><a href="/system/"><span>04</span>System<i aria-hidden="true">↗</i></a></li><li><a href="/about/"><span>05</span>About<i aria-hidden="true">↗</i></a></li><li><a href="/notes/"><span>06</span>Notes<i aria-hidden="true">↗</i></a></li></ol>
     </nav>
-    <p class="mobile-menu__note shell">The standard, <em>made visible.</em></p>
+    <footer class="fullscreen-menu__footer">
+      <p>Identity is not created. It is elevated.</p>
+      <a href="mailto:hello@empyrestudio.info">hello@empyrestudio.info</a>
+    </footer>
   </div>
 </header>
 <main id="main">
@@ -78,8 +93,8 @@
       <h1 id="hero-title" tabindex="-1">Brand Clarity Sprint</h1>
       <p class="lede">The fastest path from confusion to conviction.</p>
       <div class="button-row" style="margin-top:1.6rem">
-    <a class="button button--primary" href="/contact/?service=brand-clarity-sprint">Inquire about Brand Clarity Sprint</a>
-    <a class="button button--secondary" href="/services/">Compare services</a>
+    <a class="button button--primary gold-glass-button" href="/contact/?service=brand-clarity-sprint">Inquire about Brand Clarity Sprint</a>
+    <a class="button button--secondary gold-glass-button" href="/services/">Compare services</a>
   </div>
     </div>
     <aside class="interior-hero__aside"><p class="micro">At a glance</p><ul class="interior-hero__list"><li>5 days</li><li>Starting at $1,500</li></ul></aside>
@@ -87,9 +102,9 @@
 </header>
 <section class="section hairline">
   <div class="shell">
-    <picture>
+    <figure class="media-frame media-frame--editorial"><picture>
   <img src="/assets/img/r/01_brand_clarity_sprint-900.jpg" srcset="/assets/img/r/01_brand_clarity_sprint-640.jpg 640w, /assets/img/r/01_brand_clarity_sprint-900.jpg 900w, /assets/img/r/01_brand_clarity_sprint-1200.jpg 1200w" sizes="100vw" alt="An open Brand Clarity Map with positioning, audience, voice, and clarity notes suspended in a vaulted chamber above the clouds." loading="lazy" decoding="async" width="1200" height="744">
-</picture>
+</picture></figure>
   </div>
 </section>
 <section class="section hairline">
@@ -99,7 +114,7 @@
       <h2>Who this is for</h2>
       <p class="lede">Founders who need the foundation before anything else. Businesses in transition that cannot yet articulate what they have become.</p>
       <p class="body">Before you spend on design or a website, settle positioning, audience, voice, and competitive edge.</p>
-      <dl class="facts">
+      <dl class="facts gold-glass">
         <div><dt>Timeline</dt><dd>5 days</dd></div>
         <div><dt>Investment</dt><dd>Starting at $1,500. Final investment is confirmed after scope, timeline, and required deliverables are defined.</dd></div>
         <div><dt>Availability</dt><dd>Capacity is limited. Current timing is confirmed during inquiry.</dd></div>
@@ -114,9 +129,9 @@
   <div>
     <h2>What the engagement delivers.</h2>
     <div class="two-col" style="margin-top:1.5rem">
-      <article><h3>Discovery</h3><ul class="list-check"><li>Business and goal review</li><li>Audience context</li><li>Competitive landscape</li><li>Market constraints</li></ul></article>
-      <article><h3>Excavation</h3><ul class="list-check"><li>Brand positioning statement</li><li>Audience clarity profile</li><li>3–5 defensible differentiators</li><li>Brand promise</li></ul></article>
-      <article><h3>Direction</h3><ul class="list-check"><li>Voice and tone definition</li><li>Visual direction brief</li><li>Complete Brand Clarity Map</li><li>60-minute strategic debrief</li></ul></article>
+      <article class="gold-glass"><h3>Discovery</h3><ul class="list-check"><li>Business and goal review</li><li>Audience context</li><li>Competitive landscape</li><li>Market constraints</li></ul></article>
+      <article class="gold-glass"><h3>Excavation</h3><ul class="list-check"><li>Brand positioning statement</li><li>Audience clarity profile</li><li>3–5 defensible differentiators</li><li>Brand promise</li></ul></article>
+      <article class="gold-glass"><h3>Direction</h3><ul class="list-check"><li>Voice and tone definition</li><li>Visual direction brief</li><li>Complete Brand Clarity Map</li><li>60-minute strategic debrief</li></ul></article>
     </div>
   </div>
 </div></section>
@@ -133,7 +148,7 @@
     <p class="body">Client responsibilities include completing the strategic questionnaire, providing relevant context, making one decision-maker available, and attending the debrief. No revision rounds; alignment happens in the 60-minute debrief. The Brand Clarity Map is delivered digitally.</p>
   </div>
 </div></section>
-<section class="section hairline"><div class="shell"><p class="eyebrow">Details</p><h2>Frequently asked.</h2><div class="faq" style="margin-top:1.5rem"><details><summary>Does the Sprint include a logo or visual identity?</summary><p>No. Tier 01 contains no logo, visual identity, color, typography, guidelines, production assets, verbal playbook, or launch materials.</p></details><details><summary>Can the Sprint happen before a website project?</summary><p>Yes. It is designed to establish direction before money is committed to a website, identity, content system, or launch.</p></details><details><summary>What happens after the Sprint?</summary><p>You can use the strategic direction with your internal team or another partner, or discuss whether an Empyré identity engagement is the right next step.</p></details></div></div></section>
+<section class="section hairline"><div class="shell"><p class="eyebrow">Details</p><h2>Frequently asked.</h2><div class="faq" style="margin-top:1.5rem"><details><summary>Does the Sprint include a logo or visual identity?</summary><p>No. Tier 01 contains no logo, visual identity, color, typography, guidelines, production assets, verbal playbook, or launch materials.</p></details><details><summary>Can the Sprint happen before a website project?</summary><p>Yes. It is designed to establish direction before money is committed to a websibsite, identity, content system, or launch.</p></details><details><summary>What happens after the Sprint?</summary><p>You can use the strategic direction with your internal team or another partner, or discuss whether an Empyré identity engagement is the right next step.</p></details></div></div></section>
 
 <section class="section hairline">
   <div class="shell split">
@@ -155,8 +170,8 @@
     <h2 id="cta-title">Is this the right starting point?</h2>
     <p class="lede" style="margin-top:1.2rem">Share the current stage, the change in front of the business, and what needs to exist when the engagement is complete.</p>
     <div class="button-row" style="margin-top:1.6rem">
-      <a class="button button--primary" href="/contact/?service=brand-clarity-sprint">Inquire about Brand Clarity Sprint</a>
-      <a class="button button--secondary" href="/services/">Compare services</a>
+      <a class="button button--primary gold-glass-button" href="/contact/?service=brand-clarity-sprint">Inquire about Brand Clarity Sprint</a>
+      <a class="button button--secondary gold-glass-button" href="/services/">Compare services</a>
     </div>
   </div>
 </section>
@@ -197,6 +212,6 @@
   <svg aria-hidden="true" viewBox="0 0 24 30"><path d="M12 28V3M4 11l8-8 8 8"/></svg>
 </button>
 <div class="sr-only" aria-live="polite" aria-atomic="true" data-soar-status></div>
-<script src="/assets/js/hybrid.js?v=loadergif10" defer></script>
+<script src="/assets/js/hybrid.js?v=rise02" defer></script>
 </body>
 </html>

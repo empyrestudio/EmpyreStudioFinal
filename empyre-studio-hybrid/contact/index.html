@@ -20,8 +20,16 @@
   <meta name="twitter:description" content="Start a qualified Empyré Studio project. Tell us what is changing. Every inquiry is reviewed personally within 48 hours.">
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-tight-latin-wght-normal.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/instrument-serif-latin-400-italic.woff2" crossorigin>
-  <link rel="preload" as="image" href="/assets/img/loader/empyre-loader.gif">
-  <link rel="stylesheet" href="/assets/css/hybrid.css?v=loadergif10">
+  <link rel="preload" as="image" href="/assets/img/emblem-3d/empyre-gold-cloud.png">
+  <link rel="preload" as="image" href="/assets/img/r/hero_atmosphere-1600.jpg">
+  <link rel="stylesheet" href="/assets/css/hybrid.css?v=read01">
+  <link rel="stylesheet" href="/assets/css/empyre.css?v=read01">
+  <link rel="stylesheet" href="/assets/css/meaning-stage.css?v=gold01">
+  <link rel="stylesheet" href="/assets/css/fullscreen-menu.css?v=read01">
+  <link rel="stylesheet" href="/assets/css/gold-glass.css?v=legend01">
+  <link rel="stylesheet" href="/assets/css/readability.css?v=layout01">
+  <link rel="stylesheet" href="/assets/css/layout.css?v=layout01">
+  <link rel="stylesheet" href="/assets/css/loader-rise.css?v=rise02">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/img/logo/mark-180.png">
   <link rel="manifest" href="/site.webmanifest">
@@ -35,13 +43,15 @@
         } catch (e) {}
         if (reduce) document.documentElement.setAttribute("data-motion", "reduced");
         var home = location.pathname === "/" || location.pathname === "/index.html";
-        if (!reduce && home) document.documentElement.classList.add("empyre-loading");
+        var seen = false;
+        try { seen = localStorage.getItem("empyre-loader-played") === "1"; } catch (e2) {}
+        if (!reduce && home && !seen) document.documentElement.classList.add("empyre-loading");
       } catch (e) {}
     })();
   </script>
   
 </head>
-<body id="top" class="surface-ground is-interior">
+<body id="top" class="site-canvas surface-ground is-interior">
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header" data-header>
   <div class="header-inner shell">
@@ -56,18 +66,23 @@
       <span></span><span></span><span class="sr-only">Menu</span>
     </button>
   </div>
-  <div class="mobile-menu surface-panel has-glare" id="mobile-menu" hidden data-mobile-menu>
-    <div class="mobile-menu__top shell">
-      <span class="micro">Navigation</span>
-      <button class="menu-close" type="button" aria-label="Close menu" data-menu-close>
-        <span>Close</span><i></i>
+  <div class="fullscreen-menu" id="mobile-menu" hidden data-mobile-menu role="dialog" aria-modal="true" aria-label="Site navigation">
+    <div class="fullscreen-menu__atmosphere" aria-hidden="true"></div>
+    <div class="fullscreen-menu__topbar">
+      <a class="fullscreen-menu__brand" href="/" aria-label="Empyré Studio home">
+        <img src="/assets/img/logo/wordmark-140.png" srcset="/assets/img/logo/wordmark-140.png 1x, /assets/img/logo/wordmark-280.png 2x" width="140" height="38" alt="Empyré Studio">
+      </a>
+      <button class="menu-close" type="button" aria-label="Close navigation" data-menu-close>
+        <span aria-hidden="true">×</span>
       </button>
     </div>
-    <nav class="mobile-menu__nav shell" aria-label="Mobile">
-      <a href="/work/"><span>01</span>Work</a><a href="/services/"><span>02</span>Services</a><a href="/system/"><span>03</span>System</a><a href="/about/"><span>04</span>About</a><a href="/notes/"><span>05</span>Notes</a>
-      <a class="mobile-menu__cta" href="/contact/">Start a project <span aria-hidden="true">↗</span></a>
+    <nav class="fullscreen-menu__nav" aria-label="Primary">
+      <ol><li><a href="/" aria-current="page"><span>01</span>Home<i aria-hidden="true">↗</i></a></li><li><a href="/work/"><span>02</span>Work<i aria-hidden="true">↗</i></a></li><li><a href="/services/"><span>03</span>Services<i aria-hidden="true">↗</i></a></li><li><a href="/system/"><span>04</span>System<i aria-hidden="true">↗</i></a></li><li><a href="/about/"><span>05</span>About<i aria-hidden="true">↗</i></a></li><li><a href="/notes/"><span>06</span>Notes<i aria-hidden="true">↗</i></a></li></ol>
     </nav>
-    <p class="mobile-menu__note shell">The standard, <em>made visible.</em></p>
+    <footer class="fullscreen-menu__footer">
+      <p>Identity is not created. It is elevated.</p>
+      <a href="mailto:hello@empyrestudio.info">hello@empyrestudio.info</a>
+    </footer>
   </div>
 </header>
 <main id="main">
@@ -82,14 +97,19 @@
     <aside class="interior-hero__aside"><p class="micro">Response</p><p class="interior-hero__statement">Every inquiry is reviewed personally within 48 hours, Monday through Friday.</p></aside>
   </div>
 </header>
-<section class="section hairline"><div class="shell interior-contact">
+<section class="section hairline section--contact-glow"><div class="shell interior-contact">
+  <div class="interior-contact__notes-wrap">
+  <figure class="contact-emblem-frame media-frame media-frame--square">
+    <img class="contact-emblem" src="/assets/img/emblem-3d/empyre-gold.jpg" width="1800" height="1800" alt="" aria-hidden="true">
+  </figure>
   <div class="two-col interior-contact__notes" style="margin-bottom:2.5rem">
-    <article class="proof-card"><p class="micro">Response</p><h3>Within 48 hours</h3><p class="muted">Every inquiry is reviewed personally, Monday through Friday.</p></article>
-    <article class="proof-card"><p class="micro">Fit</p><h3>A clear decision-maker</h3><p class="muted">Empyré prioritizes projects with meaningful strategic change and respect for the process.</p></article>
-    <article class="proof-card"><p class="micro">Privacy</p><h3>Used only to respond</h3><p class="muted">See the <a href="/privacy/" style="border-bottom:1px solid var(--line)">privacy policy</a>. Empyré does not respond to unsolicited vendor outreach.</p></article>
-    <article class="proof-card"><p class="micro">Confidentiality</p><h3>Private work stays private</h3><p class="muted">Relevant unpublished experience can be discussed once fit is established.</p></article>
+    <article class="proof-card gold-glass"><p class="micro">Response</p><h3>Within 48 hours</h3><p class="muted">Every inquiry is reviewed personally, Monday through Friday.</p></article>
+    <article class="proof-card gold-glass"><p class="micro">Fit</p><h3>A clear decision-maker</h3><p class="muted">Empyré prioritizes projects with meaningful strategic change and respect for the process.</p></article>
+    <article class="proof-card gold-glass"><p class="micro">Privacy</p><h3>Used only to respond</h3><p class="muted">See the <a href="/privacy/" style="border-bottom:1px solid var(--line)">privacy policy</a>. Empyré does not respond to unsolicited vendor outreach.</p></article>
+    <article class="proof-card gold-glass"><p class="micro">Confidentiality</p><h3>Private work stays private</h3><p class="muted">Relevant unpublished experience can be discussed once fit is established.</p></article>
   </div>
-  <form class="form surface-panel has-glare" name="project-inquiry" method="POST" action="/api/inquiry" data-inquiry-form>
+  </div>
+  <form class="form surface-panel gold-glass" name="project-inquiry" method="POST" action="/api/inquiry" data-inquiry-form>
     <input type="hidden" name="form-name" value="project-inquiry">
     <p class="hp"><label>Do not complete this field if you are human <input name="company-site-confirmation" tabindex="-1" autocomplete="off"></label></p>
     <p class="form-error" data-form-status hidden role="alert" aria-live="polite"></p>
@@ -109,7 +129,7 @@
       <label class="field"><span>Company / organization *</span><input name="company" type="text" autocomplete="organization" required></label>
       <label class="field"><span>What is changing? *</span><textarea name="project-change" required placeholder="Where the brand is now, where it needs to stand, and what is in the way."></textarea></label>
       <div class="form-nav">
-        <button class="button button--primary" type="button" data-next-step>Continue</button>
+        <button class="button button--primary gold-glass-button" type="button" data-next-step>Continue</button>
         <span class="step-dots">Then service, timing, and investment</span>
       </div>
     </div>
@@ -166,8 +186,8 @@
         <span>I have read the <a href="/privacy/">privacy policy</a> and consent to Empyré using this information to assess and respond to my inquiry. *</span>
       </label>
       <div class="form-nav">
-        <button class="button button--secondary" type="button" data-back-step>Back</button>
-        <button class="button button--primary" type="submit">Send project inquiry</button>
+        <button class="button button--secondary gold-glass-button" type="button" data-back-step>Back</button>
+        <button class="button button--primary gold-glass-button" type="submit">Send project inquiry</button>
       </div>
     </div>
   </form>
@@ -209,6 +229,6 @@
   <svg aria-hidden="true" viewBox="0 0 24 30"><path d="M12 28V3M4 11l8-8 8 8"/></svg>
 </button>
 <div class="sr-only" aria-live="polite" aria-atomic="true" data-soar-status></div>
-<script src="/assets/js/hybrid.js?v=loadergif10" defer></script>
+<script src="/assets/js/hybrid.js?v=rise02" defer></script>
 </body>
 </html>

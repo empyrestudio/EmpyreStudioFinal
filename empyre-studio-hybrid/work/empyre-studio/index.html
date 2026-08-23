@@ -20,8 +20,16 @@
   <meta name="twitter:description" content="Internal case study: how Empyré Studio designed strategy, language, visual structure, and digital behavior as one operating system.">
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-tight-latin-wght-normal.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/instrument-serif-latin-400-italic.woff2" crossorigin>
-  <link rel="preload" as="image" href="/assets/img/loader/empyre-loader.gif">
-  <link rel="stylesheet" href="/assets/css/hybrid.css?v=loadergif10">
+  <link rel="preload" as="image" href="/assets/img/emblem-3d/empyre-gold-cloud.png">
+  <link rel="preload" as="image" href="/assets/img/r/hero_atmosphere-1600.jpg">
+  <link rel="stylesheet" href="/assets/css/hybrid.css?v=read01">
+  <link rel="stylesheet" href="/assets/css/empyre.css?v=read01">
+  <link rel="stylesheet" href="/assets/css/meaning-stage.css?v=gold01">
+  <link rel="stylesheet" href="/assets/css/fullscreen-menu.css?v=read01">
+  <link rel="stylesheet" href="/assets/css/gold-glass.css?v=legend01">
+  <link rel="stylesheet" href="/assets/css/readability.css?v=layout01">
+  <link rel="stylesheet" href="/assets/css/layout.css?v=layout01">
+  <link rel="stylesheet" href="/assets/css/loader-rise.css?v=rise02">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/img/logo/mark-180.png">
   <link rel="manifest" href="/site.webmanifest">
@@ -35,13 +43,15 @@
         } catch (e) {}
         if (reduce) document.documentElement.setAttribute("data-motion", "reduced");
         var home = location.pathname === "/" || location.pathname === "/index.html";
-        if (!reduce && home) document.documentElement.classList.add("empyre-loading");
+        var seen = false;
+        try { seen = localStorage.getItem("empyre-loader-played") === "1"; } catch (e2) {}
+        if (!reduce && home && !seen) document.documentElement.classList.add("empyre-loading");
       } catch (e) {}
     })();
   </script>
   
 </head>
-<body id="top" class="surface-ground is-interior">
+<body id="top" class="site-canvas surface-ground is-interior">
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header" data-header>
   <div class="header-inner shell">
@@ -56,18 +66,23 @@
       <span></span><span></span><span class="sr-only">Menu</span>
     </button>
   </div>
-  <div class="mobile-menu surface-panel has-glare" id="mobile-menu" hidden data-mobile-menu>
-    <div class="mobile-menu__top shell">
-      <span class="micro">Navigation</span>
-      <button class="menu-close" type="button" aria-label="Close menu" data-menu-close>
-        <span>Close</span><i></i>
+  <div class="fullscreen-menu" id="mobile-menu" hidden data-mobile-menu role="dialog" aria-modal="true" aria-label="Site navigation">
+    <div class="fullscreen-menu__atmosphere" aria-hidden="true"></div>
+    <div class="fullscreen-menu__topbar">
+      <a class="fullscreen-menu__brand" href="/" aria-label="Empyré Studio home">
+        <img src="/assets/img/logo/wordmark-140.png" srcset="/assets/img/logo/wordmark-140.png 1x, /assets/img/logo/wordmark-280.png 2x" width="140" height="38" alt="Empyré Studio">
+      </a>
+      <button class="menu-close" type="button" aria-label="Close navigation" data-menu-close>
+        <span aria-hidden="true">×</span>
       </button>
     </div>
-    <nav class="mobile-menu__nav shell" aria-label="Mobile">
-      <a href="/work/" aria-current="page"><span>01</span>Work</a><a href="/services/"><span>02</span>Services</a><a href="/system/"><span>03</span>System</a><a href="/about/"><span>04</span>About</a><a href="/notes/"><span>05</span>Notes</a>
-      <a class="mobile-menu__cta" href="/contact/">Start a project <span aria-hidden="true">↗</span></a>
+    <nav class="fullscreen-menu__nav" aria-label="Primary">
+      <ol><li><a href="/"><span>01</span>Home<i aria-hidden="true">↗</i></a></li><li><a href="/work/" aria-current="page"><span>02</span>Work<i aria-hidden="true">↗</i></a></li><li><a href="/services/"><span>03</span>Services<i aria-hidden="true">↗</i></a></li><li><a href="/system/"><span>04</span>System<i aria-hidden="true">↗</i></a></li><li><a href="/about/"><span>05</span>About<i aria-hidden="true">↗</i></a></li><li><a href="/notes/"><span>06</span>Notes<i aria-hidden="true">↗</i></a></li></ol>
     </nav>
-    <p class="mobile-menu__note shell">The standard, <em>made visible.</em></p>
+    <footer class="fullscreen-menu__footer">
+      <p>Identity is not created. It is elevated.</p>
+      <a href="mailto:hello@empyrestudio.info">hello@empyrestudio.info</a>
+    </footer>
   </div>
 </header>
 <main id="main">
@@ -82,11 +97,11 @@
     <aside class="interior-hero__aside"><p class="micro">Label</p><ul class="interior-hero__list"><li>Internal work</li><li>Brand and digital systems</li><li>Not a client case study</li></ul></aside>
   </div>
 </header>
-<section class="section hairline"><div class="shell"><picture>
+<section class="section hairline"><div class="shell"><figure class="media-frame media-frame--editorial"><picture>
   <img src="/assets/img/r/hero_atmosphere-960.jpg" srcset="/assets/img/r/hero_atmosphere-640.jpg 640w, /assets/img/r/hero_atmosphere-960.jpg 960w, /assets/img/r/hero_atmosphere-1280.jpg 1280w, /assets/img/r/hero_atmosphere-1600.jpg 1600w" sizes="100vw" alt="Atmospheric cloud horizon used as Empyré Studio’s visual world." loading="lazy" decoding="async" width="1600" height="992">
-</picture></div></section>
+</picture></figure></div></section>
 <section class="section hairline"><div class="shell">
-  <dl class="facts">
+  <dl class="facts gold-glass">
     <div><dt>Client</dt><dd>Empyré Studio (internal)</dd></div>
     <div><dt>Industry</dt><dd>Brand and digital systems</dd></div>
     <div><dt>Scope</dt><dd>Positioning, visual identity, verbal direction, digital experience, and production system</dd></div>
@@ -124,7 +139,7 @@
   <p class="eyebrow">Outcome</p>
   <div>
     <h2>A system built to hold its character.</h2>
-    <p class="body">The resulting framework gives the studio a recognizable visual world and a practical structure for service communication, publishing, project qualification, and future growth. No third-party metrics are claimed. The result is a coherent identity and digital framework designed to make the studio’s strategic standard visible at every touchpoint.</p>
+    <p class="body">The resulting framework gives the studio a recognizable visual world and a practical structure for service communication, publishing, project qualification, and future growth. No third-party metrics are claimed. The result is a coherent identity and digital frard visible at every touchpoint.</p>
   </div>
 </div></section>
 <section class="cta-block has-glare" aria-labelledby="cta-title">
@@ -136,8 +151,8 @@
     <h2 id="cta-title">Begin a similar project.</h2>
     <p class="lede" style="margin-top:1.2rem">Tell us the change in front of you and what should be possible when the engagement is complete.</p>
     <div class="button-row" style="margin-top:1.6rem">
-      <a class="button button--primary" href="/contact/">Start a project</a>
-      <a class="button button--secondary" href="/services/">Compare services</a>
+      <a class="button button--primary gold-glass-button" href="/contact/">Start a project</a>
+      <a class="button button--secondary gold-glass-button" href="/services/">Compe services</a>
     </div>
   </div>
 </section>
@@ -178,6 +193,6 @@
   <svg aria-hidden="true" viewBox="0 0 24 30"><path d="M12 28V3M4 11l8-8 8 8"/></svg>
 </button>
 <div class="sr-only" aria-live="polite" aria-atomic="true" data-soar-status></div>
-<script src="/assets/js/hybrid.js?v=loadergif10" defer></script>
+<script src="/assets/js/hybrid.js?v=rise02" defer></script>
 </body>
 </html>

@@ -1,0 +1,263 @@
+/* Empyré — one responsive system: desktop ≥1081, tablet 768–1080, mobile ≤767.
+   No empty wells, no crushed columns, no overlay UI on the emblem at small sizes. */
+
+html, body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+img, video, svg, canvas, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+.shell,
+.about-shell,
+.interior-hero__grid {
+  min-width: 0;
+}
+
+.header-inner {
+  flex-wrap: nowrap;
+  min-width: 0;
+}
+.wordmark {
+  flex: 0 1 auto;
+  min-width: 0;
+}
+.wordmark img {
+  width: min(132px, 42vw);
+  height: auto;
+}
+
+.home-hero__content,
+.home-name__copy,
+.home-name__aside,
+.home-invite__panel,
+.form,
+.service-card,
+.system-card,
+.case-feature,
+.footer-grid > * {
+  min-width: 0;
+}
+
+/* Emblem frame: overlay nodes on desktop, row below on smaller screens */
+.empyre-stage__frame {
+  position: relative;
+}
+
+/* ——— Tablet: 768–1080 ——— */
+@media (max-width: 1080px) {
+  .home-name__grid,
+  .about-grid,
+  .about-grid--mark,
+  .about-hero__grid,
+  .about-founder__grid,
+  .interior-contact,
+  .name-grid,
+  .mark-split,
+  .founder-module {
+    grid-template-columns: 1fr !important;
+    gap: 1.75rem !important;
+  }
+
+  .home-name__copy { max-width: none; }
+
+  .about-mark__visual,
+  .about-mark__visual.media-frame,
+  .contact-emblem-frame {
+    width: 100%;
+    max-width: min(100%, 28rem);
+    margin-inline: auto;
+    min-height: 0;
+  }
+
+  .empyre-stage__sky {
+    aspect-ratio: 1 / 1;
+    min-height: 0;
+    max-width: min(100%, 36rem);
+    margin-inline: auto;
+  }
+
+  .empyre-stage__emblem {
+    width: 92% !important;
+    max-height: 92%;
+  }
+
+  .empyre-stage__nodes {
+    position: relative !important;
+    inset: auto !important;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.45rem;
+    margin-top: 0.85rem;
+  }
+
+  .empyre-node {
+    position: relative !important;
+    left: auto !important;
+    top: auto !important;
+    transform: none !important;
+    flex: 0 0 40px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .system-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .fullscreen-menu {
+    overflow-y: auto;
+  }
+
+  .home-hero h1 {
+    font-size: clamp(3.4rem, 10vw, 6rem);
+  }
+}
+
+/* Keep interior service cards two-up on tablet only when there is room */
+@media (min-width: 768px) and (max-width: 1080px) {
+  body:not(.is-home) .service-grid,
+  body:not(.is-home) .two-col,
+  body:not(.is-home) .case-feature {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* ——— Mobile: ≤767 ——— */
+@media (max-width: 767px) {
+  :root {
+    --gutter: 1.15rem;
+    --header-h: 4.5rem;
+  }
+
+  .header-inner {
+    min-height: 4.5rem;
+    gap: 0.75rem;
+    padding-inline: 0;
+  }
+
+  .home-hero {
+    min-height: max(640px, 100svh);
+  }
+
+  .home-hero__inner {
+    padding-top: 6.25rem;
+    padding-bottom: 2.5rem;
+  }
+
+  .home-section,
+  .home-section--name,
+  .home-section--ops,
+  .home-section--pov,
+  .home-section--studio,
+  .home-section--invitation,
+  .about-section,
+  .section,
+  .is-interior .section {
+    padding-block: clamp(2.5rem, 8vw, 3.75rem);
+  }
+
+  .home-hero h1 {
+    font-size: clamp(2.7rem, 13vw, 4.2rem);
+    max-width: 12ch;
+  }
+
+  .home-hero .lede,
+  .lede {
+    max-width: none;
+  }
+
+  .home-name__grid,
+  .split,
+  .two-col,
+  .service-grid,
+  .system-grid,
+  .case-feature,
+  .footer-grid,
+  .interior-hero__grid,
+  .interior-contact,
+  .about-grid,
+  .about-hero__grid,
+  .about-founder__grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .empyre-stage__sky {
+    max-width: 100%;
+    min-height: 0;
+  }
+
+  .empyre-stage__emblem {
+    width: 88% !important;
+  }
+
+  .empyre-node {
+    flex-basis: 36px;
+    width: 36px;
+    height: 36px;
+  }
+
+  .home-hero__actions,
+  .button-row,
+  .home-invite__panel .home-hero__actions {
+    display: grid;
+    grid-template-columns: 1fr;
+    width: 100%;
+  }
+
+  .home-hero__actions .button,
+  .button-row .button,
+  .home-invite__panel .button {
+    width: 100%;
+  }
+
+  .invitation-shell,
+  .home-invite__panel {
+    padding-inline: 1.1rem;
+  }
+
+  .form {
+    padding: 1.1rem 0.95rem 1.25rem;
+    max-width: 100%;
+  }
+
+  .table-wrap {
+    margin-inline: 0;
+  }
+
+  .founder-frame,
+  .about-founder__grid .founder-frame {
+    max-width: 100%;
+  }
+
+  .fullscreen-menu {
+    padding: 16px;
+  }
+
+  .fullscreen-menu__nav a {
+    font-size: clamp(1.85rem, 11vw, 3.2rem);
+  }
+
+  .soar {
+    right: 0.85rem;
+    bottom: 0.85rem;
+  }
+}
+
+/* Extra-narrow phones */
+@media (max-width: 400px) {
+  .home-hero h1 {
+    font-size: clamp(2.35rem, 12.5vw, 3.2rem);
+  }
+  .empyre-node {
+    flex-basis: 34px;
+    width: 34px;
+    height: 34px;
+  }
+}

@@ -20,8 +20,16 @@
   <meta name="twitter:description" content="Empyré Studio, founded by SaMiaya. The standard, made visible.">
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-tight-latin-wght-normal.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/instrument-serif-latin-400-italic.woff2" crossorigin>
-  <link rel="preload" as="image" href="/assets/img/loader/empyre-loader.gif">
-  <link rel="stylesheet" href="/assets/css/hybrid.css?v=loadergif10">
+  <link rel="preload" as="image" href="/assets/img/emblem-3d/empyre-gold-cloud.png">
+  <link rel="preload" as="image" href="/assets/img/r/hero_atmosphere-1600.jpg">
+  <link rel="stylesheet" href="/assets/css/hybrid.css?v=read01">
+  <link rel="stylesheet" href="/assets/css/empyre.css?v=read01">
+  <link rel="stylesheet" href="/assets/css/meaning-stage.css?v=gold01">
+  <link rel="stylesheet" href="/assets/css/fullscreen-menu.css?v=read01">
+  <link rel="stylesheet" href="/assets/css/gold-glass.css?v=legend01">
+  <link rel="stylesheet" href="/assets/css/readability.css?v=layout01">
+  <link rel="stylesheet" href="/assets/css/layout.css?v=layout01">
+  <link rel="stylesheet" href="/assets/css/loader-rise.css?v=rise02">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/img/logo/mark-180.png">
   <link rel="manifest" href="/site.webmanifest">
@@ -35,13 +43,15 @@
         } catch (e) {}
         if (reduce) document.documentElement.setAttribute("data-motion", "reduced");
         var home = location.pathname === "/" || location.pathname === "/index.html";
-        if (!reduce && home) document.documentElement.classList.add("empyre-loading");
+        var seen = false;
+        try { seen = localStorage.getItem("empyre-loader-played") === "1"; } catch (e2) {}
+        if (!reduce && home && !seen) document.documentElement.classList.add("empyre-loading");
       } catch (e) {}
     })();
   </script>
   
 </head>
-<body id="top" class="surface-ground is-about">
+<body id="top" class="site-canvas surface-ground is-about">
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header" data-header>
   <div class="header-inner shell">
@@ -56,22 +66,27 @@
       <span></span><span></span><span class="sr-only">Menu</span>
     </button>
   </div>
-  <div class="mobile-menu surface-panel has-glare" id="mobile-menu" hidden data-mobile-menu>
-    <div class="mobile-menu__top shell">
-      <span class="micro">Navigation</span>
-      <button class="menu-close" type="button" aria-label="Close menu" data-menu-close>
-        <span>Close</span><i></i>
+  <div class="fullscreen-menu" id="mobile-menu" hidden data-mobile-menu role="dialog" aria-modal="true" aria-label="Site navigation">
+    <div class="fullscreen-menu__atmosphere" aria-hidden="true"></div>
+    <div class="fullscreen-menu__topbar">
+      <a class="fullscreen-menu__brand" href="/" aria-label="Empyré Studio home">
+        <img src="/assets/img/logo/wordmark-140.png" srcset="/assets/img/logo/wordmark-140.png 1x, /assets/img/logo/wordmark-280.png 2x" width="140" height="38" alt="Empyré Studio">
+      </a>
+      <button class="menu-close" type="button" aria-label="Close navigation" data-menu-close>
+        <span aria-hidden="true">×</span>
       </button>
     </div>
-    <nav class="mobile-menu__nav shell" aria-label="Mobile">
-      <a href="/work/"><span>01</span>Work</a><a href="/services/"><span>02</span>Services</a><a href="/system/"><span>03</span>System</a><a href="/about/" aria-current="page"><span>04</span>About</a><a href="/notes/"><span>05</span>Notes</a>
-      <a class="mobile-menu__cta" href="/contact/">Start a project <span aria-hidden="true">↗</span></a>
+    <nav class="fullscreen-menu__nav" aria-label="Primary">
+      <ol><li><a href="/"><span>01</span>Home<i aria-hidden="true">↗</i></a></li><li><a href="/work/"><span>02</span>Work<i aria-hidden="true">↗</i></a></li><li><a href="/services/"><span>03</span>Services<i aria-hidden="true">↗</i></a></li><li><a href="/system/"><span>04</span>System<i aria-hidden="true">↗</i></a></li><li><a href="/about/" aria-current="page"><span>05</span>About<i aria-hidden="true">↗</i></a></li><li><a href="/notes/"><span>06</span>Notes<i aria-hidden="true">↗</i></a></li></ol>
     </nav>
-    <p class="mobile-menu__note shell">The standard, <em>made visible.</em></p>
+    <footer class="fullscreen-menu__footer">
+      <p>Identity is not created. It is elevated.</p>
+      <a href="mailto:hello@empyrestudio.info">hello@empyrestudio.info</a>
+    </footer>
   </div>
 </header>
 <main id="main">
-<header class="about-hero" id="hero">
+<header class="about-hero section--luminous-left" id="hero">
   <div class="about-shell about-hero__grid">
     <div>
       <p class="eyebrow">About Empyré</p>
@@ -89,7 +104,7 @@
   </div>
 </header>
 
-<section class="about-section" aria-labelledby="name-title">
+<section class="about-section section--luminous-name" aria-labelledby="name-title">
   <div class="about-shell about-grid">
     <div>
       <p class="eyebrow">The name · Em-Py-Rei</p>
@@ -105,10 +120,10 @@
   </div>
 </section>
 
-<section class="about-section" aria-labelledby="mark-title">
+<section class="about-section section--luminous-mark" aria-labelledby="mark-title">
   <div class="about-shell about-grid about-grid--mark">
-    <div class="about-mark__visual">
-      <img class="about-mark__emblem" src="/assets/img/logo/mark-180.png" width="180" height="180" alt="" aria-hidden="true">
+    <div class="about-mark__visual media-frame media-frame--square gold-glass">
+      <img class="about-mark__emblem" src="/assets/img/emblem-3d/empyre-silver.jpg" width="1800" height="1800" alt="" aria-hidden="true">
     </div>
     <div>
       <p class="eyebrow">The mark</p>
@@ -121,14 +136,15 @@
   </div>
 </section>
 
-<section class="about-section" aria-labelledby="founder-title">
+<section class="about-section section--founder-glow" aria-labelledby="founder-title">
   <div class="about-shell about-founder__grid">
-    <figure class="founder-frame">
+    <figure class="founder-frame interactive-float">
+      <div class="founder-glow" aria-hidden="true"></div>
       <div class="founder-frame__glass">
-        <div class="founder-frame__photo-wrap">
+        <div class="founder-frame__photo-wrap media-frame media-frame--portrait">
           <img class="founder-frame__photo" src="/assets/img/founder-samiaya.jpg" width="578" height="578" alt="SaMiaya, founder and creative director of Empyré Studio" decoding="async">
         </div>
-        <figcaption class="founder-frame__nameplate">
+        <figcaption class="founder-frame__nameplate depth-float-md">
           <span class="founder-frame__name">SaMiaya</span>
           <span class="founder-frame__role">Founder &amp; Creative Director</span>
         </figcaption>
@@ -144,7 +160,7 @@
   </div>
 </section>
 
-<section class="about-section about-section--close" aria-labelledby="principles-title">
+<section class="about-section about-section--close section--luminous-invite" aria-labelledby="principles-title">
   <div class="about-shell about-grid about-grid--close">
     <div>
       <p class="eyebrow">Studio</p>
@@ -155,9 +171,9 @@
         <li>Identity, elevated.</li>
       </ul>
     </div>
-    <aside class="about-closing__panel">
+    <aside class="about-closing__panel gold-glass">
       <p class="about-closing__lead">Ready to build a brand with substance?</p>
-      <a class="button button--primary" href="/contact/">Start a project</a>
+      <a class="button button--primary gold-glass-button" href="/contact/">Start a project</a>
     </aside>
   </div>
 </section>
@@ -198,6 +214,6 @@
   <svg aria-hidden="true" viewBox="0 0 24 30"><path d="M12 28V3M4 11l8-8 8 8"/></svg>
 </button>
 <div class="sr-only" aria-live="polite" aria-atomic="true" data-soar-status></div>
-<script src="/assets/js/hybrid.js?v=loadergif10" defer></script>
+<script src="/assets/js/hybrid.js?v=rise02" defer></script>
 </body>
 </html>

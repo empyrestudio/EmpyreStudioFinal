@@ -1,0 +1,318 @@
+/* Luminous navy–pearl atmosphere over visible clouds. Not dark mode. */
+
+:root {
+  --navy-deep: #07152f;
+  --navy-mid: #0c2552;
+  --blue-steel: #5f789c;
+  --pearl: #eef1ef;
+  --ivory: #f8f7f2;
+  --cloud-white: #ffffff;
+  --ink: #080b11;
+  --muted-ink: rgba(8, 11, 17, 0.68);
+  --lavender-silver: #d9d8ed;
+  color-scheme: light;
+}
+
+html {
+  background: var(--pearl);
+}
+
+body,
+.surface-ground,
+.site-canvas {
+  background: transparent !important;
+  color: var(--ink);
+}
+
+body::before,
+body::after {
+  opacity: 0;
+  background: none;
+}
+
+.site-atmosphere {
+  position: fixed;
+  z-index: -3;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    linear-gradient(
+      145deg,
+      rgb(7 21 47 / 0.64) 0%,
+      rgb(12 37 82 / 0.42) 25%,
+      rgb(95 120 156 / 0.22) 47%,
+      rgb(238 241 239 / 0.12) 68%,
+      rgb(248 247 242 / 0.06) 100%
+    ),
+    url("../img/empyre-atmosphere-light.jpg") center / cover no-repeat;
+}
+
+.site-atmosphere::before {
+  position: absolute;
+  inset: 0;
+  content: "";
+  pointer-events: none;
+  background:
+    radial-gradient(circle at 68% 24%, rgb(255 255 255 / 0.34) 0%, rgb(255 255 255 / 0.10) 24%, transparent 52%),
+    linear-gradient(to bottom, transparent 0%, rgb(255 255 255 / 0.06) 45%, rgb(255 255 255 / 0.30) 100%);
+}
+
+.home-page,
+.home-section,
+.about-section,
+.about-hero,
+.interior-hero,
+.is-interior .section,
+.site-footer,
+body.is-home .site-footer {
+  background: transparent !important;
+}
+
+h1, h2, h3, .lede, .home-hero h1, .home-hero .lede {
+  color: var(--ink);
+}
+.muted, .prose, .body, .split .body,
+.home-ops p,
+.home-section--name .body,
+.home-section--studio .body,
+.about-grid .body,
+.about-founder__grid .founder-copy .body,
+.home-hero__kicker,
+.eyebrow, .micro, .faint {
+  color: var(--muted-ink);
+}
+.eyebrow::before { background: var(--navy-mid); box-shadow: none; }
+.eyebrow span { color: var(--navy-mid); }
+
+/* Reading wash so body copy holds 4.5:1 over clouds */
+.home-section .shell,
+.about-section .about-shell,
+.is-interior .shell,
+.interior-hero__copy,
+.about-hero__grid > div:first-child,
+.page-hero,
+.shell-narrow.prose {
+  position: relative;
+}
+
+.home-hero__overlay--base {
+  background:
+    linear-gradient(90deg, rgb(7 21 47 / 0.38) 0%, rgb(7 21 47 / 0.12) 42%, transparent 72%),
+    linear-gradient(180deg, rgb(7 21 47 / 0.18) 0%, transparent 40%, rgb(248 247 242 / 0.28) 100%);
+}
+.home-hero__overlay--copy {
+  background: radial-gradient(ellipse 70% 70% at 24% 70%, rgb(248 247 242 / 0.55) 0%, transparent 74%);
+}
+.home-hero__overlay--bottom {
+  background: linear-gradient(180deg, transparent 58%, rgb(238 241 239 / 0.45) 86%, rgb(248 247 242 / 0.55) 100%);
+}
+
+/* Header: keep behavior, restyle surface for navy/pearl */
+.site-header.is-scrolled,
+body:not(.is-home) .site-header,
+.site-header--floating .site-header__surface,
+.glass-header {
+  background:
+    linear-gradient(135deg, rgb(255 255 255 / 0.48) 0%, rgb(224 235 255 / 0.18) 48%, rgb(255 255 255 / 0.08) 100%),
+    rgb(255 255 255 / 0.14) !important;
+  border-bottom: 1px solid rgb(255 255 255 / 0.55) !important;
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.90), 0 18px 52px rgb(7 21 47 / 0.14) !important;
+  backdrop-filter: blur(18px) saturate(135%) brightness(112%);
+  -webkit-backdrop-filter: blur(18px) saturate(135%) brightness(112%);
+}
+body.is-home .site-header:not(.is-scrolled):not(.site-header--floating) {
+  background: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+.nav-primary a { color: var(--muted-ink); }
+.nav-primary a:hover,
+.nav-primary a[aria-current="page"] { color: var(--ink); }
+.nav-primary a::after { background: var(--navy-mid); }
+
+.mobile-menu {
+  background:
+    linear-gradient(145deg, rgb(255 255 255 / 0.62), rgb(225 235 250 / 0.30) 55%, rgb(255 255 255 / 0.18));
+  color: var(--ink);
+  border-left: 1px solid rgb(255 255 255 / 0.66);
+}
+.menu-toggle span:not(.sr-only),
+.menu-toggle span:nth-child(2),
+.menu-close i::before,
+.menu-close i::after { background: var(--ink); }
+.mobile-menu__nav > a span,
+.mobile-menu__nav > a[aria-current="page"] { color: var(--navy-mid); }
+
+/* Glass buttons — all CTAs */
+.button,
+.button--primary,
+.button-primary,
+.button--secondary,
+.button-secondary,
+.button-glass,
+.header-cta,
+.mobile-menu__cta,
+.glass-button,
+.ey-button--primary,
+.ey-button--glass {
+  color: var(--ink) !important;
+  border: 1px solid rgb(255 255 255 / 0.62) !important;
+  border-radius: 9999px !important;
+  background:
+    linear-gradient(135deg, rgb(255 255 255 / 0.48) 0%, rgb(224 235 255 / 0.18) 48%, rgb(255 255 255 / 0.08) 100%),
+    rgb(255 255 255 / 0.11) !important;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.90),
+    inset 0 -1px 0 rgb(7 21 47 / 0.08),
+    0 18px 52px rgb(7 21 47 / 0.14) !important;
+  backdrop-filter: blur(18px) saturate(135%) brightness(112%);
+  -webkit-backdrop-filter: blur(18px) saturate(135%) brightness(112%);
+  filter: none;
+}
+.button::before,
+.header-cta::before,
+.mobile-menu__cta::before {
+  background: linear-gradient(115deg, rgb(255 255 255 / 0.8), rgb(217 216 237 / 0.35), rgb(255 255 255 / 0.6));
+  opacity: 0.55;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .button:hover,
+  .button--primary:hover,
+  .button-primary:hover,
+  .button--secondary:hover,
+  .header-cta:hover,
+  .glass-button:hover {
+    color: var(--ink) !important;
+    transform: translateY(-3px) scale(1.02);
+    border-color: rgb(255 255 255 / 0.92) !important;
+    background:
+      linear-gradient(135deg, rgb(255 255 255 / 0.72) 0%, rgb(209 225 255 / 0.32) 50%, rgb(255 255 255 / 0.14) 100%),
+      rgb(255 255 255 / 0.20) !important;
+    box-shadow:
+      inset 0 1px 0 rgb(255 255 255 / 1),
+      inset 0 -1px 0 rgb(7 21 47 / 0.06),
+      0 28px 75px rgb(7 21 47 / 0.18) !important;
+    filter: none;
+  }
+}
+
+.text-link { color: var(--ink); border-bottom-color: rgb(8 11 17 / 0.18); }
+.text-link span { color: var(--navy-mid); }
+.text-link:hover { color: var(--navy-mid); border-color: var(--navy-mid); }
+
+:where(a, button, input, textarea, select, summary):focus-visible {
+  outline: 2px solid var(--navy-mid);
+  outline-offset: 4px;
+}
+
+/* Frosted content shells */
+.glass-real,
+.home-invite__panel,
+.invitation-shell,
+.form,
+.surface-panel,
+.about-closing__panel,
+.operating-cell,
+.home-ops article,
+.faq details[open],
+.table-wrap,
+.facts,
+.service-card .meta,
+.empyre-name-visual,
+.empyre-emblem-deconstruction,
+.emblem-callout,
+.empyre-callout,
+.founder-frame__glass,
+.founder-frame__nameplate,
+.about-mark__visual {
+  background:
+    linear-gradient(145deg, rgb(255 255 255 / 0.62), rgb(225 235 250 / 0.30) 55%, rgb(255 255 255 / 0.18)) !important;
+  border: 1px solid rgb(255 255 255 / 0.66) !important;
+  color: var(--ink);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.95),
+    inset 0 -1px 0 rgb(7 21 47 / 0.08),
+    0 28px 90px rgb(7 21 47 / 0.15) !important;
+  backdrop-filter: blur(32px) saturate(140%) brightness(114%);
+  -webkit-backdrop-filter: blur(32px) saturate(140%) brightness(114%);
+}
+
+.home-ops article,
+.operating-cell,
+.empyre-callout,
+.emblem-callout {
+  backdrop-filter: blur(18px) saturate(135%) brightness(112%);
+}
+
+.field input, .field select, .field textarea, .glass-input {
+  background: rgb(255 255 255 / 0.42);
+  border: 1px solid rgb(7 21 47 / 0.12);
+  color: var(--ink);
+}
+.field span, .field label,
+.service-card .promise,
+.mark-close,
+.about-closing__lead,
+.about-hero__statement,
+.interior-hero__statement,
+.name-quote,
+.founder-frame__name,
+.home-ops h3 { color: var(--ink); }
+.founder-frame__role,
+.emblem-callout__body,
+.empyre-callout__body { color: var(--muted-ink); }
+
+.site-footer { border-top: 1px solid rgb(7 21 47 / 0.10); color: var(--muted-ink); }
+.footer-nav a, .footer-contact a, .footer-legal a { color: var(--muted-ink); }
+.footer-nav a:hover, .footer-contact a:hover { color: var(--ink); }
+.footer-email { color: var(--ink) !important; }
+
+.soar {
+  color: var(--ink);
+  background: linear-gradient(135deg, rgb(255 255 255 / 0.48), rgb(255 255 255 / 0.10));
+  border: 1px solid rgb(255 255 255 / 0.62);
+}
+.soar svg { stroke: var(--navy-mid); }
+
+.skip-link { background: var(--navy-mid); color: #fff; }
+
+.cta-block::after {
+  background: linear-gradient(180deg, rgb(7 21 47 / 0.10), rgb(248 247 242 / 0.55));
+}
+
+/* Isolated black emblem over atmosphere */
+.empyre-name-visual__logo,
+.empyre-emblem-deconstruction__final-emblem,
+.emblem-stage {
+  filter:
+    drop-shadow(0 1px 0 rgb(255 255 255 / 0.35))
+    drop-shadow(0 10px 18px rgb(7 21 47 / 0.22));
+}
+
+.empyre-name-visual__glass-art {
+  opacity: 0.55;
+  filter: saturate(0.85) brightness(1.05);
+}
+
+.section--luminous-left::before,
+.home-section--ops::before,
+.about-hero::before,
+.home-section--name::before,
+.home-section--studio::after,
+.home-section--invitation::before,
+.home-section--pov::after {
+  background: radial-gradient(ellipse, rgb(255 255 255 / 0.28) 0%, rgb(95 120 156 / 0.10) 40%, transparent 72%);
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .button,
+  .form,
+  .glass-real,
+  .home-ops article,
+  .invitation-shell,
+  .mobile-menu {
+    background: rgb(238 241 239 / 0.94);
+  }
+}

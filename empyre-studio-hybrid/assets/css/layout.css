@@ -1,0 +1,153 @@
+/* Empyré — tighten vertical rhythm. No empty hero wells, no stacked voids.
+   Does not change Home section order, hero composition, or copy. */
+
+:root {
+  --space-section: clamp(3.25rem, 6vw, 5.25rem);
+}
+
+/* ——— Home ——— */
+.home-section {
+  padding-block: clamp(3.25rem, 6vw, 5.25rem);
+}
+.home-section--name {
+  padding-top: clamp(3.5rem, 6vw, 5.5rem);
+  padding-bottom: clamp(3.25rem, 6vw, 5.25rem);
+}
+.home-section--ops,
+.home-section--pov,
+.home-section--studio {
+  padding-block: clamp(3.25rem, 6vw, 5.25rem);
+}
+.home-section--invitation {
+  padding-top: clamp(3.5rem, 6vw, 5.5rem);
+  padding-bottom: clamp(3.75rem, 7vw, 6rem);
+}
+
+.home-name__grid {
+  align-items: start;
+  gap: clamp(1.75rem, 4vw, 3.5rem);
+}
+
+.empyre-stage__sky,
+.empyre-stage__sky.media-frame,
+.empyre-stage__canvas {
+  aspect-ratio: 1 / 1;
+  min-height: 0;
+  max-width: none;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+.empyre-stage__sky::before,
+.empyre-stage__sky.media-frame::before,
+.empyre-stage__canvas::before {
+  display: none !important;
+  content: none !important;
+}
+
+.home-ops {
+  margin-top: 0;
+}
+.home-ops__intro {
+  margin-bottom: 1.5rem;
+}
+
+/* ——— Interior / About heroes: size to content, not a vacant viewport ——— */
+.interior-hero__grid {
+  min-height: 0 !important;
+  align-items: start;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding-top: calc(var(--header-h, 5.5rem) + 2.25rem);
+  padding-bottom: clamp(2rem, 4vw, 3.25rem);
+}
+
+.about-hero__grid {
+  min-height: 0 !important;
+  align-items: start;
+  gap: clamp(1.5rem, 4vw, 3rem);
+  padding-top: calc(var(--header-offset, 80px) + 2.5rem);
+  padding-bottom: clamp(2.25rem, 4vw, 3.5rem);
+}
+
+.about-section {
+  padding-block: clamp(3.25rem, 6vw, 5.25rem);
+}
+
+.about-mark__visual,
+.about-mark__visual.media-frame {
+  min-height: 0;
+  max-width: min(100%, 28rem);
+}
+
+.contact-emblem-frame {
+  width: min(100%, 26rem);
+  margin-bottom: 1rem;
+}
+
+/* ——— Shared section padding ——— */
+.section,
+.is-interior .section,
+.section.hairline {
+  padding-block: clamp(2.75rem, 5vw, 4.5rem);
+}
+
+.page-hero {
+  padding: calc(var(--header-h, 5.5rem) + 2.25rem) 0 clamp(2rem, 4vw, 3.25rem);
+}
+
+.cta-block {
+  min-height: 0;
+  padding: clamp(3rem, 6vw, 5rem) 0;
+}
+
+/* ——— Cards / grids: no phantom stretch ——— */
+.service-grid,
+.system-grid,
+.home-ops,
+.two-col {
+  align-items: stretch;
+}
+
+.case-feature {
+  align-items: start;
+}
+
+.proof-card,
+.note-card {
+  margin-bottom: 0;
+}
+
+.interior-contact {
+  align-items: start;
+}
+
+/* FAQ / tables sit closer to their headings */
+.faq {
+  margin-top: 1.25rem;
+}
+
+@media (max-width: 1080px) {
+  .home-section,
+  .about-section,
+  .section,
+  .is-interior .section {
+    padding-block: clamp(2.75rem, 8vw, 4.25rem);
+  }
+}
+
+@media (max-width: 767px) {
+  .interior-hero__grid,
+  .about-hero__grid {
+    min-height: 0 !important;
+    padding-top: calc(var(--header-h, 5.5rem) + 1.75rem);
+    padding-bottom: 2rem;
+    gap: 1.25rem;
+  }
+  .home-section--name {
+    padding-top: 3.25rem;
+  }
+  .empyre-stage__canvas {
+    max-width: 100%;
+  }
+}

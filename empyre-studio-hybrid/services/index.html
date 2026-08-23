@@ -20,8 +20,16 @@
   <meta name="twitter:description" content="Four Empyré Studio engagements: Brand Clarity Sprint, Identity Transformation, Signature Launch Suite, and Brand Stewardship.">
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/inter-tight-latin-wght-normal.woff2" crossorigin>
   <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/instrument-serif-latin-400-italic.woff2" crossorigin>
-  <link rel="preload" as="image" href="/assets/img/loader/empyre-loader.gif">
-  <link rel="stylesheet" href="/assets/css/hybrid.css?v=loadergif10">
+  <link rel="preload" as="image" href="/assets/img/emblem-3d/empyre-gold-cloud.png">
+  <link rel="preload" as="image" href="/assets/img/r/hero_atmosphere-1600.jpg">
+  <link rel="stylesheet" href="/assets/css/hybrid.css?v=read01">
+  <link rel="stylesheet" href="/assets/css/empyre.css?v=read01">
+  <link rel="stylesheet" href="/assets/css/meaning-stage.css?v=gold01">
+  <link rel="stylesheet" href="/assets/css/fullscreen-menu.css?v=read01">
+  <link rel="stylesheet" href="/assets/css/gold-glass.css?v=legend01">
+  <link rel="stylesheet" href="/assets/css/readability.css?v=layout01">
+  <link rel="stylesheet" href="/assets/css/layout.css?v=layout01">
+  <link rel="stylesheet" href="/assets/css/loader-rise.css?v=rise02">
   <link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/assets/img/logo/mark-180.png">
   <link rel="manifest" href="/site.webmanifest">
@@ -35,13 +43,15 @@
         } catch (e) {}
         if (reduce) document.documentElement.setAttribute("data-motion", "reduced");
         var home = location.pathname === "/" || location.pathname === "/index.html";
-        if (!reduce && home) document.documentElement.classList.add("empyre-loading");
+        var seen = false;
+        try { seen = localStorage.getItem("empyre-loader-played") === "1"; } catch (e2) {}
+        if (!reduce && home && !seen) document.documentElement.classList.add("empyre-loading");
       } catch (e) {}
     })();
   </script>
   
 </head>
-<body id="top" class="surface-ground is-interior">
+<body id="top" class="site-canvas surface-ground is-interior">
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header" data-header>
   <div class="header-inner shell">
@@ -56,18 +66,23 @@
       <span></span><span></span><span class="sr-only">Menu</span>
     </button>
   </div>
-  <div class="mobile-menu surface-panel has-glare" id="mobile-menu" hidden data-mobile-menu>
-    <div class="mobile-menu__top shell">
-      <span class="micro">Navigation</span>
-      <button class="menu-close" type="button" aria-label="Close menu" data-menu-close>
-        <span>Close</span><i></i>
+  <div class="fullscreen-menu" id="mobile-menu" hidden data-mobile-menu role="dialog" aria-modal="true" aria-label="Site navigation">
+    <div class="fullscreen-menu__atmosphere" aria-hidden="true"></div>
+    <div class="fullscreen-menu__topbar">
+      <a class="fullscreen-menu__brand" href="/" aria-label="Empyré Studio home">
+        <img src="/assets/img/logo/wordmark-140.png" srcset="/assets/img/logo/wordmark-140.png 1x, /assets/img/logo/wordmark-280.png 2x" width="140" height="38" alt="Empyré Studio">
+      </a>
+      <button class="menu-close" type="button" aria-label="Close navigation" data-menu-close>
+        <span aria-hidden="true">×</span>
       </button>
     </div>
-    <nav class="mobile-menu__nav shell" aria-label="Mobile">
-      <a href="/work/"><span>01</span>Work</a><a href="/services/" aria-current="page"><span>02</span>Services</a><a href="/system/"><span>03</span>System</a><a href="/about/"><span>04</span>About</a><a href="/notes/"><span>05</span>Notes</a>
-      <a class="mobile-menu__cta" href="/contact/">Start a project <span aria-hidden="true">↗</span></a>
+    <nav class="fullscreen-menu__nav" aria-label="Primary">
+      <ol><li><a href="/"><span>01</span>Home<i aria-hidden="true">↗</i></a></li><li><a href="/work/"><span>02</span>Work<i aria-hidden="true">↗</i></a></li><li><a href="/services/" aria-current="page"><span>03</span>Services<i aria-hidden="true">↗</i></a></li><li><a href="/system/"><span>04</span>System<i aria-hidden="true">↗</i></a></li><li><a href="/about/"><span>05</span>About<i aria-hidden="true">↗</i></a></li><li><a href="/notes/"><span>06</span>Notes<i aria-hidden="true">↗</i></a></li></ol>
     </nav>
-    <p class="mobile-menu__note shell">The standard, <em>made visible.</em></p>
+    <footer class="fullscreen-menu__footer">
+      <p>Identity is not created. It is elevated.</p>
+      <a href="mailto:hello@empyrestudio.info">hello@empyrestudio.info</a>
+    </footer>
   </div>
 </header>
 <main id="main">
@@ -84,8 +99,8 @@
 </header>
 <section class="section hairline">
   <div class="shell">
-    <div class="service-grid"><article class="service-card">
-  <div class="service-card__media"><picture>
+    <div class="service-grid"><article class="service-card gold-glass">
+  <div class="service-card__media media-frame media-frame--editorial"><picture>
   <img src="/assets/img/r/01_brand_clarity_sprint-900.jpg" srcset="/assets/img/r/01_brand_clarity_sprint-640.jpg 640w, /assets/img/r/01_brand_clarity_sprint-900.jpg 900w, /assets/img/r/01_brand_clarity_sprint-1200.jpg 1200w" sizes="(min-width:1080px) 42vw, 100vw" alt="An open Brand Clarity Map with positioning, audience, voice, and clarity notes suspended in a vaulted chamber above the clouds." loading="lazy" decoding="async" width="1200" height="744">
 </picture></div>
   <div class="service-card__head"><span class="service-card__number">01</span><span class="micro">Intensive · 5 days</span></div>
@@ -94,8 +109,8 @@
   <p class="fit"><strong style="color:var(--bone);font-weight:520">Best for.</strong> Founders who need the foundation before anything else. Businesses in transition that cannot yet articulate what they have become.</p>
   <p class="fit">A Brand Clarity Map—the strategic argument everything else depends on.</p>
   <p class="meta"><span>5 days</span><span>Starting at $1,500</span></p>
-</article><article class="service-card">
-  <div class="service-card__media"><picture>
+</article><article class="service-card gold-glass">
+  <div class="service-card__media media-frame media-frame--editorial"><picture>
   <img src="/assets/img/r/02_identity_transformation-900.jpg" srcset="/assets/img/r/02_identity_transformation-640.jpg 640w, /assets/img/r/02_identity_transformation-900.jpg 900w, /assets/img/r/02_identity_transformation-1200.jpg 1200w" sizes="(min-width:1080px) 42vw, 100vw" alt="The Empyré mark in dimensional form beside glass identity panels and material swatches above a cloud sea." loading="lazy" decoding="async" width="1200" height="744">
 </picture></div>
   <div class="service-card__head"><span class="service-card__number">02</span><span class="micro">Comprehensive identity</span></div>
@@ -104,8 +119,8 @@
   <p class="fit"><strong style="color:var(--bone);font-weight:520">Best for.</strong> Businesses whose brand no longer reflects who they are. New ventures that refuse to arrive unfinished.</p>
   <p class="fit">A complete identity system—strategy, image, language, guidelines, and production-ready assets.</p>
   <p class="meta"><span>5–6 weeks</span><span>Starting at $4,500</span></p>
-</article><article class="service-card">
-  <div class="service-card__media"><picture>
+</article><article class="service-card gold-glass">
+  <div class="service-card__media media-frame media-frame--editorial"><picture>
   <img src="/assets/img/r/03_signature_launch_suite-900.jpg" srcset="/assets/img/r/03_signature_launch_suite-640.jpg 640w, /assets/img/r/03_signature_launch_suite-900.jpg 900w, /assets/img/r/03_signature_launch_suite-1200.jpg 1200w" sizes="(min-width:1080px) 42vw, 100vw" alt="The Empyré mark on a glass plinth with launch messaging, website compositions, and campaign panels receding into open sky." loading="lazy" decoding="async" width="1200" height="744">
 </picture></div>
   <div class="service-card__head"><span class="service-card__number">03</span><span class="micro">Identity + launch</span></div>
@@ -114,8 +129,8 @@
   <p class="fit"><strong style="color:var(--bone);font-weight:520">Best for.</strong> Brands preparing for launch, rebrand reveal, or a significant market entry.</p>
   <p class="fit">Identity Transformation carried through launch strategy, messaging, website direction, and launch assets.</p>
   <p class="meta"><span>8–10 weeks</span><span>Starting at $8,000</span></p>
-</article><article class="service-card">
-  <div class="service-card__media"><picture>
+</article><article class="service-card gold-glass">
+  <div class="service-card__media media-frame media-frame--editorial"><picture>
   <img src="/assets/img/r/04_brand_stewardship-900.jpg" srcset="/assets/img/r/04_brand_stewardship-640.jpg 640w, /assets/img/r/04_brand_stewardship-900.jpg 900w, /assets/img/r/04_brand_stewardship-1200.jpg 1200w" sizes="(min-width:1080px) 42vw, 100vw" alt="A full brand archive wall of stationery, swatches, and printed systems standing in a concrete room open to the clouds." loading="lazy" decoding="async" width="1200" height="744">
 </picture></div>
   <div class="service-card__head"><span class="service-card__number">04</span><span class="micro">Ongoing retainer</span></div>
@@ -131,7 +146,7 @@
   <div class="shell">
     <h2 id="glance-title">Engagements at a glance</h2>
     <p class="muted" style="max-width:58ch;margin:1rem 0 1.5rem">Starting prices are an entry point, not a complete quote. Final investment is confirmed after scope, timeline, and required deliverables are defined. Capacity is confirmed during inquiry.</p>
-    <div class="table-wrap surface-panel">
+    <div class="table-wrap surface-panel gold-glass">
       <table>
         <thead><tr><th>Engagement</th><th>Timeline</th><th>Investment</th><th>Availability</th></tr></thead>
         <tbody><tr><td><a href='/services/brand-clarity-sprint/'>Brand Clarity Sprint</a></td><td>5 days</td><td>Starting at $1,500</td><td>Confirmed during inquiry</td></tr><tr><td><a href='/services/identity-transformation/'>Identity Transformation</a></td><td>5–6 weeks</td><td>Starting at $4,500</td><td>Confirmed during inquiry</td></tr><tr><td><a href='/services/signature-launch-suite/'>Signature Launch Suite</a></td><td>8–10 weeks</td><td>Starting at $8,000</td><td>Confirmed during inquiry</td></tr><tr><td><a href='/services/brand-stewardship/'>Brand Stewardship</a></td><td>Monthly · 3-month minimum</td><td>Starting at $1,200/month</td><td>Confirmed during inquiry</td></tr></tbody>
@@ -157,7 +172,7 @@
     <h2 id="cta-title">Not sure which tier fits?</h2>
     <p class="lede" style="margin-top:1.2rem">Tell us what is changing, what already exists, and what the business needs to be ready for next.</p>
     <div class="button-row" style="margin-top:1.6rem">
-      <a class="button button--primary" href="/contact/">Describe your project</a>
+      <a class="button button--primary gold-glass-button" href="/contact/">Describe your project</a>
       
     </div>
   </div>
@@ -199,6 +214,6 @@
   <svg aria-hidden="true" viewBox="0 0 24 30"><path d="M12 28V3M4 11l8-8 8 8"/></svg>
 </button>
 <div class="sr-only" aria-live="polite" aria-atomic="true" data-soar-status></div>
-<script src="/assets/js/hybrid.js?v=loadergif10" defer></script>
+<script src="/assets/js/hybrid.js?v=rise02" defer></script>
 </body>
 </html>

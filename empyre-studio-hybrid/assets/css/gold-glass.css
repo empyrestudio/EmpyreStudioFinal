@@ -1,0 +1,683 @@
+/* Empyré — cool cloud glass. Gold exists only as a 1px masked rim.
+   The rim is never a background layer, so it cannot tint the interior. */
+
+:root {
+  --radius-xl: 32px;
+  --radius-lg: 24px;
+  --radius-md: 18px;
+  --radius-sm: 14px;
+  --radius-pill: 999px;
+
+  --gold-rim:
+    linear-gradient(
+      135deg,
+      rgb(255 247 209 / 0.88) 0%,
+      rgb(234 209 137 / 0.68) 20%,
+      rgb(174 129 53 / 0.50) 43%,
+      rgb(255 251 226 / 0.82) 62%,
+      rgb(145 104 37 / 0.52) 81%,
+      rgb(255 244 194 / 0.80) 100%
+    );
+
+  --glass-sky:
+    linear-gradient(
+      145deg,
+      rgb(255 255 255 / 0.38) 0%,
+      rgb(228 239 255 / 0.18) 42%,
+      rgb(176 202 232 / 0.10) 72%,
+      rgb(255 255 255 / 0.12) 100%
+    );
+
+  --glass-sky-hover:
+    linear-gradient(
+      145deg,
+      rgb(255 255 255 / 0.52) 0%,
+      rgb(220 235 255 / 0.26) 46%,
+      rgb(177 205 242 / 0.14) 76%,
+      rgb(255 255 255 / 0.18) 100%
+    );
+
+  --glass-ink: #07101f;
+  --glass-ink-soft: rgb(7 16 31 / 0.68);
+}
+
+/* 1px gold rim via mask — does not sit behind the fill */
+.gold-glass::before,
+.gold-glass-button::before,
+.gold-rim::before,
+.media-frame::before,
+.button::before,
+.button-primary::before,
+.button-secondary::before,
+.button-glass::before,
+.button--primary::before,
+.button--secondary::before,
+.mobile-menu__cta::before,
+.ey-button::before,
+.soar::before,
+.glass-icon-button::before,
+.empyre-stage__canvas::before,
+.founder-frame__glass::before,
+.founder-frame__nameplate::before,
+.invitation-shell::before,
+.field input::before,
+.service-card .meta::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  padding: 1px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: var(--gold-rim);
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+}
+
+/* ——— Cool cloud-glass fill. No gold in the stack. ——— */
+.gold-glass {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-lg);
+  color: var(--glass-ink);
+  background: var(--glass-sky);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.72),
+    inset 0 -1px 0 rgb(6 20 47 / 0.08),
+    0 18px 60px rgb(7 21 47 / 0.12);
+  backdrop-filter: blur(28px) saturate(125%) brightness(112%);
+  -webkit-backdrop-filter: blur(28px) saturate(125%) brightness(112%);
+  transition:
+    background 600ms cubic-bezier(.22, 1, .36, 1),
+    box-shadow 600ms cubic-bezier(.22, 1, .36, 1),
+    transform 600ms cubic-bezier(.22, 1, .36, 1);
+}
+
+.gold-glass > * { position: relative; z-index: 1; }
+
+.gold-glass:hover,
+.gold-glass:focus-within,
+.gold-glass.is-active {
+  background: var(--glass-sky-hover);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.88),
+    inset 0 -1px 0 rgb(6 20 47 / 0.07),
+    0 26px 82px rgb(7 21 47 / 0.16);
+}
+
+.gold-glass .muted,
+.gold-glass .fit,
+.gold-glass .body,
+.gold-glass p,
+.gold-glass .lede {
+  color: var(--glass-ink-soft);
+}
+
+.gold-glass h2,
+.gold-glass h3,
+.gold-glass .micro,
+.gold-glass .eyebrow,
+.gold-glass .promise,
+.gold-glass .name-quote {
+  color: var(--glass-ink);
+}
+
+.gold-glass::after,
+.gold-glass--pearl {
+  display: none !important;
+}
+
+/* ——— Buttons: same cool glass, gold rim only ——— */
+.gold-glass-button,
+.button,
+.button-primary,
+.button-secondary,
+.button-glass,
+.button--primary,
+.button--secondary,
+.header-cta,
+.mobile-menu__cta,
+.ey-button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: var(--radius-pill) !important;
+  color: var(--glass-ink) !important;
+  background: var(--glass-sky) !important;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.80),
+    inset 0 -1px 0 rgb(6 20 47 / 0.08),
+    0 12px 38px rgb(7 21 47 / 0.11) !important;
+  backdrop-filter: blur(18px) saturate(125%) brightness(114%);
+  -webkit-backdrop-filter: blur(18px) saturate(125%) brightness(114%);
+  filter: none !important;
+}
+
+.gold-glass-button:hover,
+.gold-glass-button:focus-visible,
+.gold-glass-button.is-active,
+.button:hover,
+.button--primary:hover,
+.button-primary:hover,
+.button--secondary:hover,
+.button-secondary:hover,
+.button-glass:hover,
+.header-cta:hover,
+.mobile-menu__cta:hover,
+.soar:hover {
+  transform: translateY(-3px) scale(1.015);
+  color: var(--glass-ink) !important;
+  background: var(--glass-sky-hover) !important;
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.92),
+    inset 0 -1px 0 rgb(6 20 47 / 0.07),
+    0 22px 64px rgb(7 21 47 / 0.15) !important;
+}
+
+.gold-glass-button:focus-visible,
+.button:focus-visible,
+.header-cta:focus-visible,
+.soar:focus-visible {
+  outline: 2px solid rgb(7 16 31 / 0.72);
+  outline-offset: 4px;
+}
+
+.gold-glass-icon,
+.menu-toggle,
+.menu-close,
+.glass-icon-button {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 0;
+  border-radius: 50% !important;
+  color: var(--glass-ink);
+  background: var(--glass-sky);
+  box-shadow:
+    inset 0 1px 0 rgb(255 255 255 / 0.80),
+    0 10px 24px rgb(7 21 47 / 0.10);
+}
+
+.glass-icon-button:hover,
+.menu-toggle:hover {
+  background: var(--glass-sky-hover);
+}
+
+/* ——— Photo frames: transparent interior, gold rim only, image unfiltered ——— */
+.media-frame,
+.gold-rim {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius-lg);
+  background: transparent;
+  box-shadow: 0 18px 58px rgb(7 21 47 / 0.13);
+}
+
+.media-frame img,
+.media-frame video,
+.media-frame picture,
+.media-frame picture img,
+.gold-rim img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: inherit;
+  object-fit: cover;
+  object-position: center;
+  filter: none;
+}
+
+.media-frame--editorial { aspect-ratio: 16 / 10; }
+.media-frame--landscape { aspect-ratio: 3 / 2; }
+.media-frame--square { aspect-ratio: 1 / 1; }
+.media-frame--portrait { aspect-ratio: 4 / 5; }
+
+.empyre-stage__canvas.media-frame .empyre-stage__emblem,
+.about-mark__visual.media-frame .about-mark__emblem,
+.contact-emblem-frame.media-frame .contact-emblem {
+  object-fit: contain;
+  object-position: center;
+  filter: none;
+}
+
+/* ——— Radius hierarchy ——— */
+.card,
+.glass-panel,
+.glass-real,
+.glass-surface,
+.project-card,
+.service-card,
+.system-card,
+.empyre-story,
+.contact-card,
+.modal__content,
+.operating-cell,
+.home-ops article,
+.invitation-shell,
+.home-invite__panel,
+.form,
+.surface-panel,
+.about-closing__panel,
+.facts,
+.table-wrap,
+.faq details[open],
+.proof-card,
+.note-card,
+.mark-display,
+.mark-display__frame,
+.about-mark__visual,
+.empyre-stage__canvas,
+.empyre-name-visual,
+.founder-frame__glass,
+.two-col > article {
+  border-radius: var(--radius-lg);
+}
+
+.founder-frame__photo-wrap,
+.service-card__media,
+.system-card img,
+.case-feature .media-frame {
+  border-radius: var(--radius-lg);
+}
+
+.invitation-shell,
+.home-invite__panel,
+.form,
+.about-closing__panel,
+.mark-display,
+.empyre-stage__canvas,
+.founder-frame__glass {
+  border-radius: var(--radius-xl);
+}
+
+.founder-frame__nameplate,
+.service-card .meta,
+.badge,
+.glass-chip,
+.empyre-callout,
+.emblem-callout {
+  border-radius: var(--radius-md);
+}
+
+.site-header--floating .header-inner,
+.fullscreen-menu__topbar,
+.field input,
+.field textarea,
+.field select,
+.glass-input,
+input:not([type="checkbox"]):not([type="radio"]):not([type="hidden"]),
+textarea,
+select {
+  border-radius: var(--radius-md);
+}
+
+.fullscreen-menu__nav a { border-radius: var(--radius-sm); }
+
+button,
+.tab,
+.filter-chip,
+.pagination-button,
+.header-cta,
+.soar {
+  border-radius: var(--radius-pill);
+}
+
+/* Header / nav: no gold trim; clicks must reach links */
+.site-header,
+.site-header .header-inner,
+.site-header .nav-primary,
+.site-header .nav-primary a,
+.site-header .wordmark,
+.site-header .header-cta,
+.site-header .menu-toggle,
+.site-header .fullscreen-menu,
+.fullscreen-menu a,
+.fullscreen-menu button {
+  pointer-events: auto !important;
+}
+
+.site-header .header-inner,
+.site-header--floating .header-inner,
+.site-header .header-inner.glass-edge-ring,
+.fullscreen-menu__topbar,
+.menu-toggle,
+.menu-close {
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.site-header .header-inner::before,
+.site-header--floating .header-inner::before,
+.site-header .header-inner.glass-edge-ring::before,
+.header-cta::before,
+.header-cta::after,
+.menu-toggle::before,
+.menu-close::before,
+.fullscreen-menu__topbar::before {
+  display: none !important;
+  content: none !important;
+}
+
+.site-header.is-scrolled .header-inner,
+.site-header--floating .header-inner {
+  background: transparent !important;
+}
+
+.nav-primary {
+  display: none;
+  position: relative;
+  z-index: 2;
+}
+@media (min-width: 1081px) {
+  .nav-primary { display: flex !important; }
+  .menu-toggle { display: none !important; }
+}
+.nav-primary a {
+  position: relative;
+  z-index: 2;
+  pointer-events: auto !important;
+}
+
+.header-cta {
+  position: relative;
+  z-index: 2;
+  color: #0B0F13 !important;
+  background: #FF5A3C !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.menu-toggle {
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+.fullscreen-menu {
+  border: 0;
+  box-shadow: none;
+}
+
+@media (max-width: 1080px) {
+  .nav-primary,
+  .header-cta { display: none !important; }
+  .menu-toggle { display: block !important; }
+}
+
+.service-grid {
+  gap: 1.15rem;
+  border: 0;
+  background: transparent;
+}
+.service-card {
+  border: 0 !important;
+  padding: clamp(1.15rem, 2.2vw, 1.7rem);
+}
+.service-card__media {
+  margin: 0 0 1.25rem;
+  border: 0;
+  overflow: hidden;
+  background: transparent;
+}
+.service-card .meta {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 0;
+  color: var(--glass-ink-soft);
+  background: var(--glass-sky);
+}
+
+.system-grid {
+  gap: 1.15rem;
+  background: transparent;
+  border: 0;
+}
+.system-card { padding: 1.15rem 1.15rem 1.4rem; }
+.system-card img,
+.system-card .media-frame {
+  margin-bottom: 1.1rem;
+  border: 0;
+  background: transparent;
+}
+
+.home-ops {
+  gap: 1.1rem;
+  border: 0;
+}
+.home-ops article,
+.operating-cell {
+  padding: 1.45rem 1.4rem 1.5rem !important;
+  border: 0 !important;
+}
+
+.two-col { gap: 1.15rem; }
+.two-col > article { padding: 1.25rem 1.3rem 1.35rem; }
+
+.proof-card,
+.note-card {
+  padding: 1.35rem 1.4rem;
+  border: 0;
+  margin-top: 0;
+}
+
+.facts,
+.table-wrap,
+.form,
+.about-closing__panel,
+.faq details[open] {
+  border: 0;
+}
+
+.facts { overflow: hidden; }
+.facts div { border-top-color: rgb(176 202 232 / 0.28); }
+
+.table-wrap.gold-glass,
+.table-wrap {
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.field {
+  position: relative;
+}
+.field input,
+.field select,
+.field textarea,
+.glass-input {
+  border: 1px solid rgb(176 202 232 / 0.28);
+  color: var(--glass-ink);
+  background: var(--glass-sky);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.55);
+}
+.field input:focus,
+.field select:focus,
+.field textarea:focus,
+.glass-input:focus {
+  outline: 2px solid rgb(7 16 31 / 0.72);
+  outline-offset: 2px;
+  border-color: rgb(176 202 232 / 0.55);
+  background: var(--glass-sky-hover);
+}
+
+.badge,
+.glass-chip {
+  border: 0;
+  color: var(--glass-ink);
+  background: var(--glass-sky);
+}
+
+/* Founder: cool glass frame, photo unfiltered, no gold on the face */
+.founder-frame__glass {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 0;
+  background: var(--glass-sky);
+}
+.founder-frame__photo-wrap {
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  padding: 0;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+.founder-frame__photo-wrap::before { display: none !important; }
+.founder-frame__photo-wrap img,
+.founder-frame__photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 42% 20%;
+  filter: none;
+}
+.founder-frame__nameplate {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 0;
+  color: var(--glass-ink);
+  background: var(--glass-sky);
+}
+.founder-frame__name { color: var(--glass-ink); }
+.founder-frame__role { color: var(--glass-ink-soft); }
+
+.invitation-shell {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 0;
+  background: var(--glass-sky);
+}
+.home-invite__panel.gold-glass,
+.home-invite__panel,
+.about-closing__panel {
+  border: 0;
+  border-radius: calc(var(--radius-xl) - 1px);
+  background: var(--glass-sky);
+}
+
+.empyre-story { border: 0; }
+
+.about-mark__visual {
+  overflow: hidden;
+  background: transparent;
+}
+.about-mark__visual.media-frame .about-mark__emblem {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  object-fit: contain;
+  object-position: center;
+  filter: none;
+}
+
+.contact-emblem-frame {
+  width: min(100%, 26rem);
+  margin: 0 0 1.25rem;
+  background: transparent;
+}
+.contact-emblem-frame .contact-emblem {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  object-fit: contain;
+  object-position: center;
+  filter: none;
+}
+
+.empyre-stage__canvas {
+  border: 0;
+  background: var(--glass-sky);
+}
+
+.case-feature .media-frame { width: 100%; }
+
+/* Skip full-bleed Home hero, loader, official wordmarks */
+.home-hero,
+.home-hero__media,
+.home-hero__image,
+.home-hero__image img,
+.cinematic-overlay,
+.loader-film,
+.wordmark img,
+.fullscreen-menu__brand img,
+.footer-brand img,
+.cta-block,
+.cta-block img {
+  border-radius: 0 !important;
+  border: 0;
+  box-shadow: none;
+  filter: none;
+}
+.home-hero::before,
+.cta-block::before,
+.wordmark::before {
+  display: none !important;
+}
+
+.home-hero { overflow: hidden; }
+
+.faq details[open] {
+  padding-inline: 1rem;
+  background: var(--glass-sky);
+}
+
+/* Kill leftover champagne / gold fills from earlier layers */
+.glass-real,
+.glass-surface,
+.glass-panel,
+.surface-panel,
+.form,
+.home-invite__panel.glass-real {
+  background: var(--glass-sky) !important;
+  border-color: transparent !important;
+}
+
+.glass-edge-ring::before {
+  background: var(--gold-rim);
+  opacity: 1;
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+  .gold-glass,
+  .gold-glass-button,
+  .form,
+  .about-closing__panel,
+  .operating-cell,
+  .service-card,
+  .system-card {
+    background: rgb(232 239 248 / 0.94);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gold-glass,
+  .gold-glass-button,
+  .button,
+  .header-cta,
+  .soar {
+    transition: none !important;
+    transform: none !important;
+  }
+}

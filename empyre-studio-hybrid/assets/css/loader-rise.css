@@ -1,0 +1,176 @@
+/* Home loader — gold emblem + baked cloud rising through matching sky. Once. */
+
+.cinematic-overlay--rise {
+  display: grid;
+  place-items: center;
+  background: #cfd6de;
+  cursor: pointer;
+}
+
+.loader-rise {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.loader-rise__sky {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 90% 70% at 50% 42%, #eef2f6 0%, #d5dde6 48%, #b7c2ce 100%),
+    linear-gradient(180deg, #dce3ea 0%, #c5cfd8 55%, #aeb8c4 100%);
+}
+
+.loader-rise__cloud {
+  position: absolute;
+  inset: -14%;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.loader-rise__cloud--far {
+  z-index: 1;
+  background-image:
+    linear-gradient(180deg, rgba(236, 240, 244, 0.28) 0%, transparent 36%, rgba(186, 196, 206, 0.22) 100%),
+    url("../img/r/hero_atmosphere-1600.jpg");
+  background-position: 50% 46%;
+  filter: saturate(0.55) brightness(1.28) contrast(0.88);
+  opacity: 0.78;
+  animation: loader-cloud-far 6.4s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.loader-rise__cloud--mid {
+  z-index: 2;
+  background:
+    radial-gradient(ellipse 72% 48% at 50% 62%, rgb(255 255 255 / 0.55) 0%, rgb(232 236 240 / 0.18) 46%, transparent 72%);
+  filter: blur(22px);
+  animation: loader-cloud-mid 6.4s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.loader-rise__emblem-wrap {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 46%;
+  width: min(72vw, 36rem);
+  aspect-ratio: 1;
+  transform: translate(-50%, 58vh) scale(0.78);
+  opacity: 0;
+  pointer-events: none;
+  animation: loader-emblem-rise 5.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.loader-rise__emblem-wrap::before {
+  content: "";
+  position: absolute;
+  left: 8%;
+  right: 8%;
+  top: 28%;
+  bottom: 2%;
+  border-radius: 50%;
+  background: radial-gradient(ellipse at 50% 62%, rgb(255 255 255 / 0.88) 0%, rgb(236 240 244 / 0.42) 42%, transparent 72%);
+  filter: blur(18px);
+  z-index: 0;
+}
+
+.loader-rise__emblem {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  filter: none;
+  /* Soften the baked-cloud silhouette into the sky */
+  -webkit-mask-image: radial-gradient(ellipse 78% 74% at 50% 54%, #000 58%, rgb(0 0 0 / 0.82) 76%, transparent 100%);
+  mask-image: radial-gradient(ellipse 78% 74% at 50% 54%, #000 58%, rgb(0 0 0 / 0.82) 76%, transparent 100%);
+}
+
+.loader-rise__cloud--near {
+  z-index: 4;
+  background-image:
+    radial-gradient(ellipse 92% 38% at 16% 94%, rgb(255 255 255 / 0.62) 0%, transparent 60%),
+    radial-gradient(ellipse 84% 36% at 84% 98%, rgb(244 247 250 / 0.5) 0%, transparent 62%),
+    radial-gradient(ellipse 70% 30% at 50% 108%, rgb(226 232 238 / 0.48) 0%, transparent 64%);
+  animation: loader-cloud-near 6.4s cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+
+.loader-rise__mist {
+  position: absolute;
+  z-index: 5;
+  inset: auto 0 0;
+  height: 34%;
+  pointer-events: none;
+  background: linear-gradient(180deg, transparent, rgb(190 200 210 / 0.35) 58%, rgb(168 178 188 / 0.55));
+}
+
+.loader-rise__quote {
+  position: absolute;
+  z-index: 6;
+  left: 50%;
+  bottom: max(1.75rem, env(safe-area-inset-bottom, 0px));
+  width: min(34rem, calc(100% - 2.5rem));
+  margin: 0;
+  transform: translate(-50%, 18px);
+  opacity: 0;
+  text-align: center;
+  font-family: "Instrument Serif", Georgia, serif;
+  font-style: italic;
+  font-size: clamp(1.15rem, 3.4vw, 1.7rem);
+  line-height: 1.4;
+  color: #1a222c;
+  text-shadow: 0 1px 0 rgb(255 255 255 / 0.35);
+  text-wrap: balance;
+  animation: loader-quote-in 1.6s cubic-bezier(0.22, 1, 0.36, 1) 2.6s both;
+}
+
+@keyframes loader-cloud-far {
+  from { transform: scale(1.08) translateY(8%); opacity: 0.25; }
+  24% { opacity: 0.78; }
+  to { transform: scale(1.14) translateY(-3%); opacity: 0.78; }
+}
+
+@keyframes loader-cloud-mid {
+  from { transform: translateY(8%) scale(1.04); opacity: 0; }
+  22% { opacity: 1; }
+  to { transform: translateY(-6%) scale(1.08); opacity: 0.85; }
+}
+
+@keyframes loader-cloud-near {
+  from { transform: translateY(16%); opacity: 0.12; }
+  30% { opacity: 0.9; }
+  to { transform: translateY(-18%); opacity: 0.5; }
+}
+
+@keyframes loader-emblem-rise {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 58vh) scale(0.78);
+  }
+  14% { opacity: 1; }
+  72% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -54%) scale(1.02);
+  }
+}
+
+@keyframes loader-quote-in {
+  from { opacity: 0; transform: translate(-50%, 22px); }
+  to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+html[data-motion="reduced"] .cinematic-overlay--rise,
+html[data-motion="reduced"] .cinematic-overlay--film {
+  display: none !important;
+}
+
+@media (max-width: 767px) {
+  .loader-rise__emblem-wrap { width: min(92vw, 26rem); }
+  .loader-rise__quote { font-size: clamp(1.05rem, 4.6vw, 1.35rem); }
+}

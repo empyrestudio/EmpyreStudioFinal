@@ -1,0 +1,217 @@
+/* Home The Name — transparent emblem resting in cloud. No frame.
+   Numbered circles sit in the cloud, outside the metal. Copy lives below. */
+
+.empyre-stage {
+  display: grid;
+  gap: 1.15rem;
+}
+
+.empyre-stage__frame {
+  position: relative;
+}
+
+.empyre-stage__sky {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  min-height: 22rem;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
+}
+
+/* Gold-cloud already includes the cloud — do not stack a second photo. */
+.empyre-stage__cloud,
+.empyre-stage__haze,
+.empyre-stage__rest {
+  display: none !important;
+}
+
+.empyre-stage__haze {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse 70% 55% at 50% 58%, rgba(248, 245, 242, 0.08) 0%, transparent 72%);
+}
+
+.empyre-stage__emblem {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  top: 50%;
+  width: 124%;
+  height: auto;
+  max-height: none;
+  transform: translate(-50%, -50%);
+  object-fit: contain;
+  pointer-events: none;
+  user-select: none;
+  filter: drop-shadow(0 18px 28px rgba(11, 15, 19, 0.28));
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .empyre-stage__emblem {
+    animation: emblem-float 13s ease-in-out infinite;
+  }
+  @keyframes emblem-float {
+    0%, 100% { transform: translate(-50%, -50%); }
+    25% { transform: translate(-50%, calc(-50% - 6px)); }
+    75% { transform: translate(-50%, calc(-50% + 4px)); }
+  }
+}
+
+.empyre-stage__nodes {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+}
+
+.empyre-node {
+  position: absolute;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  transform: translate(-50%, -50%);
+  border: 1px solid rgba(248, 245, 242, 0.42);
+  border-radius: 50%;
+  background: rgba(16, 24, 32, 0.38);
+  color: #F8F5F2;
+  box-shadow:
+    inset 0 1px 0 rgba(248, 245, 242, 0.28),
+    0 8px 18px rgba(11, 15, 19, 0.22);
+  backdrop-filter: blur(12px) saturate(120%);
+  -webkit-backdrop-filter: blur(12px) saturate(120%);
+  cursor: pointer;
+}
+
+.empyre-node__index {
+  font-size: 0.68rem;
+  font-weight: 560;
+  letter-spacing: 0.08em;
+  line-height: 1;
+}
+
+.empyre-node:hover,
+.empyre-node.is-active {
+  width: 48px;
+  height: 48px;
+  border-color: rgba(248, 245, 242, 0.78);
+  background: rgba(16, 24, 32, 0.55);
+}
+
+.empyre-node.is-active .empyre-node__index {
+  color: #FF5A3C;
+}
+
+.empyre-node:focus-visible,
+.glass-icon-button:focus-visible {
+  outline: 2px solid #FF5A3C;
+  outline-offset: 4px;
+}
+
+.empyre-story {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  padding: 1.15rem 1.2rem 1.2rem;
+  color: #F8F5F2;
+}
+
+.empyre-story__index {
+  margin: 0;
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(248, 245, 242, 0.72);
+}
+
+.empyre-story h3 {
+  margin: 0.55rem 0 0.4rem;
+  font-size: clamp(1.35rem, 2.4vw, 2rem);
+  letter-spacing: -0.04em;
+  color: #F8F5F2;
+}
+
+.empyre-story > p:not(.empyre-story__index) {
+  margin: 0;
+  max-width: 46ch;
+  color: rgba(248, 245, 242, 0.88);
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.empyre-story__controls {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.glass-icon-button {
+  display: inline-grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(248, 245, 242, 0.28);
+  border-radius: 50%;
+  color: #F8F5F2;
+  background: rgba(16, 24, 32, 0.35);
+  cursor: pointer;
+}
+
+.glass-icon-button:hover {
+  border-color: rgba(248, 245, 242, 0.55);
+}
+
+.about-mark__visual,
+.about-mark__visual.media-frame,
+.about-mark__visual.gold-glass {
+  background: transparent !important;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+}
+
+.about-mark__emblem {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.contact-emblem {
+  display: block;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  object-fit: contain;
+  object-position: center;
+  filter: drop-shadow(0 18px 32px rgba(11, 15, 19, 0.35));
+}
+
+@media (max-width: 767px) {
+  .empyre-stage__sky {
+    min-height: 20rem;
+  }
+  .empyre-stage__emblem {
+    width: 116%;
+  }
+  .empyre-node {
+    width: 36px;
+    height: 36px;
+  }
+  .empyre-node:hover,
+  .empyre-node.is-active {
+    width: 42px;
+    height: 42px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .empyre-stage__emblem { animation: none !important; }
+}

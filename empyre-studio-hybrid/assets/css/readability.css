@@ -1,0 +1,258 @@
+/* Empyré — readable type on the dark navy / cloud field.
+   Glass stays translucent; text is bone/white, never navy-on-navy. */
+
+:root {
+  --muted: rgba(248, 245, 242, 0.88);
+  --faint: rgba(248, 245, 242, 0.78);
+  --bone-72: rgba(248, 245, 242, 0.88);
+  --glass-muted: rgba(248, 245, 242, 0.84);
+  --glass-ink: #F8F5F2;
+  --glass-ink-soft: rgba(248, 245, 242, 0.86);
+}
+
+body,
+.lede,
+.body,
+.muted,
+.prose,
+.split .body,
+.home-ops p,
+.home-section--name .body,
+.home-section--studio .body,
+.about-grid .body,
+.about-founder__grid .founder-copy .body,
+.footer-brand p,
+.footer-legal,
+.footer-signature {
+  color: rgba(248, 245, 242, 0.90);
+}
+
+.eyebrow,
+.micro,
+.home-hero__kicker,
+.faint,
+.hint,
+.step-dots,
+.case-kicker,
+.service-card__number,
+.system-card .num,
+.facts dt,
+th {
+  color: rgba(248, 245, 242, 0.80);
+}
+
+h1, h2, h3,
+.home-hero h1,
+.home-hero .lede,
+.promise,
+.mark-close,
+.name-quote,
+.name-say,
+.about-hero__statement,
+.interior-hero__statement,
+.about-closing__lead,
+.about-principles li {
+  color: #F8F5F2;
+}
+
+/* Glass panels: light type on cool translucent fill */
+.gold-glass,
+.gold-glass h2,
+.gold-glass h3,
+.gold-glass .micro,
+.gold-glass .eyebrow,
+.gold-glass .promise,
+.gold-glass .name-quote,
+.operating-cell,
+.operating-cell h3,
+.service-card,
+.service-card h3,
+.service-card .promise,
+.system-card,
+.system-card h3,
+.proof-card,
+.proof-card h3,
+.note-card,
+.note-card h2,
+.form,
+.about-closing__panel,
+.about-closing__lead,
+.facts,
+.table-wrap,
+.faq details[open],
+.faq details[open] summary,
+.home-invite__panel,
+.home-invite__panel h2,
+.invitation-shell,
+.empyre-story,
+.empyre-story h3,
+.two-col > article,
+.two-col > article h3 {
+  color: #F8F5F2;
+}
+
+.gold-glass .muted,
+.gold-glass .fit,
+.gold-glass .body,
+.gold-glass p,
+.gold-glass .lede,
+.gold-glass li,
+.service-card .fit,
+.service-card .meta,
+.system-card p,
+.proof-card .muted,
+.note-card .muted,
+.form .muted,
+.form .hint,
+.form .step-dots,
+.faq details p,
+.empyre-story > p,
+.home-invite__panel .lede,
+.facts dd,
+td {
+  color: rgba(248, 245, 242, 0.88);
+}
+
+.gold-glass a,
+.service-card h3 a,
+.note-card h2 a,
+td a,
+.footer-nav a,
+.footer-contact a,
+.footer-legal a,
+.interior-hero__list a,
+.interior-hero__list li {
+  color: #F8F5F2;
+}
+
+/* Buttons on dark sky: white type. Ember CTA keeps ink on solid ember. */
+.gold-glass-button,
+.button,
+.button-primary,
+.button-secondary,
+.button-glass,
+.button--primary,
+.button--secondary,
+.mobile-menu__cta,
+.ey-button,
+.soar {
+  color: #F8F5F2 !important;
+}
+
+.header-cta,
+.header-cta:hover {
+  color: #0B0F13 !important;
+  background: #FF5A3C !important;
+}
+
+/* Fields: opaque enough navy so white type holds */
+.field span,
+.field label,
+.consent,
+.consent span {
+  color: #F8F5F2;
+}
+
+.field input,
+.field select,
+.field textarea,
+.glass-input {
+  color: #F8F5F2 !important;
+  background: rgb(11 15 19 / 0.78) !important;
+  border: 1px solid rgb(248 245 242 / 0.28);
+  caret-color: #F8F5F2;
+}
+
+.field input::placeholder,
+.field textarea::placeholder,
+.glass-input::placeholder {
+  color: rgba(248, 245, 242, 0.58);
+  opacity: 1;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus,
+.glass-input:focus {
+  color: #F8F5F2 !important;
+  background: rgb(11 15 19 / 0.88) !important;
+  border-color: rgb(248 245 242 / 0.48);
+}
+
+/* Header / footer / menu */
+.nav-primary a {
+  color: rgba(248, 245, 242, 0.90);
+}
+.nav-primary a:hover,
+.nav-primary a[aria-current="page"] {
+  color: #F8F5F2;
+}
+
+.menu-toggle span:not(.sr-only) {
+  background: #F8F5F2;
+}
+.menu-close {
+  color: #F8F5F2;
+}
+
+.fullscreen-menu,
+.fullscreen-menu__nav a,
+.fullscreen-menu__footer,
+.fullscreen-menu__footer a {
+  color: #F8F5F2;
+}
+
+.footer-email {
+  color: #F8F5F2 !important;
+}
+
+/* Founder nameplate over photography */
+.founder-frame__nameplate,
+.founder-frame__name {
+  color: #F8F5F2;
+}
+.founder-frame__role {
+  color: rgba(248, 245, 242, 0.84);
+}
+
+/* Emblem story + nodes */
+.empyre-story,
+.empyre-story h3,
+.empyre-story__index {
+  color: #F8F5F2;
+}
+.empyre-story > p:not(.empyre-story__index) {
+  color: rgba(248, 245, 242, 0.88);
+}
+.empyre-node,
+.empyre-node__label,
+.glass-icon-button {
+  color: #F8F5F2;
+}
+
+.badge,
+.glass-chip {
+  color: rgba(248, 245, 242, 0.88);
+}
+
+.list-check li {
+  color: rgba(248, 245, 242, 0.88);
+}
+
+.cta-block,
+.cta-block h2,
+.cta-block .lede {
+  color: #F8F5F2;
+}
+
+.home-hero__entry {
+  color: rgba(248, 245, 242, 0.86);
+}
+
+.text-link {
+  color: #F8F5F2;
+}
+
+.form-error {
+  color: #ffd4cb;
+}
