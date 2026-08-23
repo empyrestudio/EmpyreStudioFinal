@@ -866,10 +866,10 @@ def case_study():
   <p class="eyebrow">Outcome</p>
   <div>
     <h2>A system built to hold its character.</h2>
-    <p class="body">The resulting framework gives the studio a recognizable visual world and a practical structure for service communication, publishing, project qualification, and future growth. No third-party metrics are claimed. The result is a coherent identity and digital frard visible at every touchpoint.</p>
+    <p class="body">The resulting framework gives the studio a recognizable visual world and a practical structure for service communication, publishing, project qualification, and future growth. No third-party metrics are claimed. The result is a coherent identity and digital brand visible at every touchpoint.</p>
   </div>
 </div></section>
-{cta("Begin a similar project.", "Tell us the change in front of you and what should be possible when the engagement is complete.", secondary=("Compe services", "/services/"))}
+{cta("Begin a similar project.", "Tell us the change in front of you and what should be possible when the engagement is complete.", secondary=("Compare Services", "/services/"))}
 """
     page("/work/empyre-studio/", "Empyré Studio case study — Empyré Studio", "Internal case study: how Empyré Studio designed strategy, language, visual structure, and digital behavior as one operating system.", "/work/", main, og="/assets/img/r/01_brand_bible-1200.jpg")
 
